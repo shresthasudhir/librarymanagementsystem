@@ -4,6 +4,7 @@ import application.model.Admin;
 import application.model.Librarian;
 import application.model.Login;
 import application.model.Student;
+
 import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,9 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
-	public LoginController() {
-	}
-
 	@FXML
 	private TextField userName;
 	@FXML
