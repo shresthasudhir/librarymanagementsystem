@@ -5,35 +5,57 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="437.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="437.0" prefWidth="493.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="70.0" text="Welcome " />
-		<Label layoutX="82.0" layoutY="14.0" prefHeight="24.0" prefWidth="212.0" text="admin_name_will_be_here" />
-		<GridPane layoutX="16.0" layoutY="89.0" prefHeight="309.0" prefWidth="440.0">
+		<Label layoutX="14.0" layoutY="14.0" prefHeight="24.0"
+			prefWidth="70.0" text="Welcome " />
+		<Label layoutX="82.0" layoutY="14.0" prefHeight="24.0"
+			prefWidth="212.0" text="" />
+		<GridPane layoutX="16.0" layoutY="89.0" prefHeight="222.0"
+			prefWidth="440.0">
 			<columnConstraints>
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="207.66329956054688" minWidth="10.0" prefWidth="197.90438842773438" />
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="27.095611572265625" />
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="194.31414794921875" minWidth="0.0" prefWidth="188.33908081054688" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="207.66329956054688"
+					minWidth="10.0" prefWidth="197.90438842773438" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0"
+					minWidth="10.0" prefWidth="27.095611572265625" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="194.31414794921875"
+					minWidth="0.0" prefWidth="188.33908081054688" />
 			</columnConstraints>
 			<rowConstraints>
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Add Librarian" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Delete Librarian" GridPane.columnIndex="2" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="See All Librarian" GridPane.rowIndex="2" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="See All Student" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="See Fine" GridPane.rowIndex="4" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Logout" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Back" GridPane.rowIndex="6" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="Add Librarian" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="Delete Librarian" GridPane.columnIndex="2" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="See All Librarian" GridPane.rowIndex="2" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="See All Student" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="See Fine" GridPane.rowIndex="4" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="Logout" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
+					text="Back" GridPane.rowIndex="6" />
 			</children>
 		</GridPane>
-		<Label layoutX="14.0" layoutY="54.0" prefHeight="24.0" prefWidth="62.0" text="Menu:" />
+		<Label layoutX="14.0" layoutY="54.0" prefHeight="24.0"
+			prefWidth="62.0" text="Menu:" />
 	</children>
 </AnchorPane>

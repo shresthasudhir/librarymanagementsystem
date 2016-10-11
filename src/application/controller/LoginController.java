@@ -10,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 public class LoginController {
 	public LoginController() {
 	}
@@ -28,19 +27,17 @@ public class LoginController {
 			if (User.validateUser(username, password)) {
 				int status = User.getUserStatus(username);
 				if (status == 1) {
-					// do admin stuff
-					((Node)event.getSource()).getScene().getWindow().hide();
+					((Node) event.getSource()).getScene().getWindow().hide();
 					Admin admin = new Admin();
 					Stage primaryStage = new Stage();
 					admin.start(primaryStage);
-					
-					
+
 				} else if (status == 2) {
 					// do librarian stuff
 				} else if (status == 3) {
 					// do student stuff
 				} else {
-					//do something specail
+					// do something specail
 				}
 			}
 
