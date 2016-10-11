@@ -1,7 +1,6 @@
 package application.controller;
 
 import application.model.Admin;
-import application.model.Login;
 import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
