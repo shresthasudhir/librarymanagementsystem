@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Admin extends Application{
 	
 	public static void main(String[] args) {
-		
+		Application.launch(Login.class, args);
 	}
 	
 	@Override
