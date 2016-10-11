@@ -14,6 +14,8 @@ public class AdminController {
 					//frame = new AdminLogin();
 					//frame.setTitle("Library Management System");
 					//frame.setVisible(true);
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

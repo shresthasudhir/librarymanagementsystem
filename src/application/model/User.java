@@ -19,6 +19,7 @@ public class User {
 		}
 		return status;
 	}
+	
 	public static int getUserStatus(String username) {
 		int statusId = 0;
 		try {

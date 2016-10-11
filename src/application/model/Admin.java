@@ -9,14 +9,14 @@ import javafx.stage.Stage;
 public class Admin extends Application{
 	
 	public static void main(String[] args) {
-		Application.launch(Admin.class, args);
+		
 	}
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/admin.fxml"));
-			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
+			primaryStage.setTitle("Admin Page");
 			primaryStage.setScene(new Scene(root, 475, 400));
 			primaryStage.show();
 		} catch (Exception e) {
