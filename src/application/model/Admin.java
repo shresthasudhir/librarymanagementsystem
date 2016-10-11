@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Admin extends Application{
 	
 	public static void main(String[] args) {
-		
+		Application.launch(Login.class, args);
 	}
 	
 	@Override
@@ -17,7 +17,7 @@ public class Admin extends Application{
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/admin.fxml"));
 			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
-			primaryStage.setScene(new Scene(root, 475, 400));
+			primaryStage.setScene(new Scene(root, 475, 450));
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
