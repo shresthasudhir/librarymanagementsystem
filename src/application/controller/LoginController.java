@@ -1,10 +1,14 @@
 package application.controller;
 
+import application.model.Admin;
+import application.model.Login;
 import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 public class LoginController {
@@ -25,7 +29,12 @@ public class LoginController {
 				int status = User.getUserStatus(username);
 				if (status == 1) {
 					// do admin stuff
-					AdminController.main(new String[] {});
+					((Node)event.getSource()).getScene().getWindow().hide();
+					Admin admin = new Admin();
+					Stage primaryStage = new Stage();
+					admin.start(primaryStage);
+					
+					
 				} else if (status == 2) {
 					// do librarian stuff
 				} else if (status == 3) {
@@ -37,6 +46,7 @@ public class LoginController {
 
 		} catch (Exception e) {
 			System.out.println("invalid username or passport");
+			e.printStackTrace();
 		}
 
 	}
