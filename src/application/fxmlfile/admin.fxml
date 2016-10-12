@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="437.0" prefWidth="493.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.controller.AdminController">
 	<children>
 		<Label layoutX="14.0" layoutY="14.0" prefHeight="24.0"
 			prefWidth="70.0" text="Welcome " />
@@ -39,20 +40,23 @@
 					vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="Add Librarian" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="Delete Librarian" GridPane.columnIndex="2" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="See All Librarian" GridPane.rowIndex="2" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="See All Student" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="See Fine" GridPane.rowIndex="4" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="Logout" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0"
-					text="Back" GridPane.rowIndex="6" />
+				<Button onAction="#addLibrarian" mnemonicParsing="false"
+					prefHeight="50.0" prefWidth="210.0" text="Add Librarian" />
+				<Button onAction="#deleteLibrarin" mnemonicParsing="false"
+					prefHeight="50.0" prefWidth="210.0" text="Delete Librarian"
+					GridPane.columnIndex="2" />
+				<Button onAction="#seeAllLibrarin" mnemonicParsing="false"
+					prefHeight="50.0" prefWidth="210.0" text="See All Librarian"
+					GridPane.rowIndex="2" />
+				<Button onAction="#seeAllStudent" mnemonicParsing="false"
+					prefHeight="50.0" prefWidth="210.0" text="See All Student"
+					GridPane.columnIndex="2" GridPane.rowIndex="2" />
+				<Button onAction="#seeFine" mnemonicParsing="false"
+					prefHeight="50.0" prefWidth="210.0" text="See Fine"
+					GridPane.rowIndex="4" />
+				<Button onAction="#logout" mnemonicParsing="false"
+					prefHeight="50.0" prefWidth="210.0" text="Logout"
+					GridPane.columnIndex="2" GridPane.rowIndex="6" />
 			</children>
 		</GridPane>
 		<Label layoutX="14.0" layoutY="54.0" prefHeight="24.0"
