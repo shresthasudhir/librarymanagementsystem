@@ -42,7 +42,7 @@
 			<children>
 				<Button onAction="#addLibrarian" mnemonicParsing="false"
 					prefHeight="50.0" prefWidth="210.0" text="Add Librarian" />
-				<Button onAction="#deleteLibrarin" mnemonicParsing="false"
+				<Button onAction="#deleteLibrarian" mnemonicParsing="false"
 					prefHeight="50.0" prefWidth="210.0" text="Delete Librarian"
 					GridPane.columnIndex="2" />
 				<Button onAction="#seeAllLibrarin" mnemonicParsing="false"

@@ -2,6 +2,7 @@ package application.controller;
 
 import application.model.Librarian;
 import application.model.Login;
+import application.views.LibraryTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -17,13 +18,18 @@ public class AdminController {
 	}
 
 	@FXML
-	public void deleteLibrarin(ActionEvent event) {
-
+	public void deleteLibrarian(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Librarian librarin = new Librarian();
+		Stage primaryStage = new Stage();
+		librarin.deleteLibrarin(primaryStage);
 	}
 
 	@FXML
-	public void seeAllLibrarin(ActionEvent event) {
-
+	public void seeAllLibrarin(ActionEvent event) throws Exception {
+		LibraryTable dynamicTable = new LibraryTable();
+		Stage primaryStage = new Stage();
+		dynamicTable.start(primaryStage);
 	}
 
 	@FXML

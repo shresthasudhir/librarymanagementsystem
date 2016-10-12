@@ -1,6 +1,5 @@
 package application.controller;
 
-
 import application.model.Admin;
 import application.model.Librarian;
 import javafx.event.ActionEvent;
@@ -34,13 +33,13 @@ public class LibrarianController {
 		String aLastName = lastname.getText();
 		String aAddress = address.getText();
 		String aDateOfBirth = dateOfBirth.getText();
-		int aContactNumber =  Integer.parseInt(contactNumber.getText().toString());
+		int aContactNumber = Integer.parseInt(contactNumber.getText().toString());
 		String aEmail = email.getText();
 		String aUserName = username.getText();
 		String aPassword = password.getText();
 		try {
-			int saveLibraryData = Librarian.saveLibrarian(afirstName, aLastName, aAddress, aDateOfBirth, aContactNumber, aUserName, aPassword,
-					aEmail, 2);
+			int saveLibraryData = Librarian.saveLibrarian(afirstName, aLastName, aAddress, aDateOfBirth, aContactNumber,
+					aUserName, aPassword, aEmail, 2);
 			if (saveLibraryData > 0) {
 				Stage primaryStage = new Stage();
 				((Node) event.getSource()).getScene().getWindow().hide();
@@ -48,9 +47,37 @@ public class LibrarianController {
 				admin.start(primaryStage);
 				System.out.println("Successfully added librarian");
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
-		}	
-		
+		}
+
+	}
+
+	@FXML
+	public void back(ActionEvent event) {
+		Stage primaryStage = new Stage();
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Admin admin = new Admin();
+		admin.start(primaryStage);
+	}
+
+	@FXML
+	private TextField librarianId;
+
+	@FXML
+	public void deleteLibrarian(ActionEvent event) {
+		int aLibrarianId = Integer.parseInt(librarianId.getText().toString());
+		try {
+			int delete = Librarian.deleteLibrarian(aLibrarianId);
+			if (delete > 0) {
+				Stage primaryStage = new Stage();
+				((Node) event.getSource()).getScene().getWindow().hide();
+				Admin admin = new Admin();
+				admin.start(primaryStage);
+				System.out.println("Librarian " + aLibrarianId + " delete successfully");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 }
