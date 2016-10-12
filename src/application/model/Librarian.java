@@ -11,6 +11,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Librarian extends Application {
+	
+	public int librarianId;
+	
+	public void setLibrarianId(int user_id){
+	    this.librarianId = user_id;
+	}
+	
+	public int getLibrarianId(){
+		return this.librarianId;
+	}
 
 	public static void main(String[] args) {
 		Application.launch(Librarian.class, args);
@@ -20,6 +30,23 @@ public class Librarian extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/librarian.fxml"));
+			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
+			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void startLibrarian(Stage primaryStage,int librarianId) {
+		try {
+			//setLibrarianId(librarianId);
+			String libUserName = User.getUserFNameLName(librarianId);
+			final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxmlfile/librarian.fxml"));
+			fxmlLoader.getNamespace().put("librarianId", libUserName);
+			
+			Parent root = fxmlLoader.load();
+			
 			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
 			primaryStage.setScene(new Scene(root, 490, 500));
 			primaryStage.show();

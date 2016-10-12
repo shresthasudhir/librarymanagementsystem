@@ -25,13 +25,11 @@ public class AdminController {
 		librarin.deleteLibrarin(primaryStage);
 	}
 
-	@FXML
 	public void seeAllLibrarin(ActionEvent event) throws Exception {
 		LibraryTable dynamicTable = new LibraryTable();
 		Stage primaryStage = new Stage();
 		dynamicTable.start(primaryStage);
 	}
-
 	@FXML
 	public void seeAllStudent(ActionEvent event) {
 

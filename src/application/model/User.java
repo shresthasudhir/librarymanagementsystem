@@ -36,4 +36,40 @@ public class User {
 		}
 		return statusId;
 	}
+	
+	public static int getUserId(String username) {
+		int userId = 0;
+		try {
+			Connection con = Database.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT id FROM users WHERE username = ?");
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				userId = rs.getInt("id"); 
+			}
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return userId;
+	}
+	
+	public static String getUserFNameLName(int id) {
+		String userFirstName = "";
+		String userLastName = "";
+		try {
+			Connection con = Database.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT firstname,lastname FROM users WHERE id = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				userFirstName = rs.getString("firstname");
+				userLastName = rs.getString("lastname");
+			}
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return userFirstName + " " + userLastName;
+	}
 }
