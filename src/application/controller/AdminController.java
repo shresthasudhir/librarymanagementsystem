@@ -3,6 +3,7 @@ package application.controller;
 import application.model.Librarian;
 import application.model.Login;
 import application.views.LibraryTable;
+import application.views.StudentTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -31,8 +32,10 @@ public class AdminController {
 		dynamicTable.start(primaryStage);
 	}
 	@FXML
-	public void seeAllStudent(ActionEvent event) {
-
+	public void seeAllStudent(ActionEvent event) throws Exception {
+		StudentTable stuDyanamicTable = new StudentTable();
+		Stage primaryStage = new Stage();
+		stuDyanamicTable.start(primaryStage);
 	}
 
 	@FXML

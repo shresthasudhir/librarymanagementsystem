@@ -20,7 +20,7 @@
 						<Button mnemonicParsing="false" onAction="#addStudent" prefHeight="50.0" prefWidth="210.0" text="Add Student" GridPane.rowIndex="4" />
 						<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Delete Student" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 						<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Search Student" GridPane.rowIndex="6" />
-						<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" text="Logout" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+						<Button mnemonicParsing="false" onAction="#logout" prefHeight="50.0" prefWidth="210.0" text="Logout" GridPane.columnIndex="2" GridPane.rowIndex="6" />
 					</children>
 					<columnConstraints>
 						<ColumnConstraints hgrow="SOMETIMES" maxWidth="207.66329956054688" minWidth="10.0" prefWidth="197.90438842773438" />

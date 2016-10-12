@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="application.controller.LibrarianController">
+<AnchorPane prefWidth="611.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LibrarianController">
 	<children>
 		<AnchorPane layoutX="1.0" layoutY="0.0" prefHeight="544.0"
 			prefWidth="417.0">
@@ -20,7 +20,7 @@
 					</font>
 				</Label>
 				<GridPane hgap="10.0" layoutX="14.0" layoutY="43.0"
-					prefHeight="487.0" prefWidth="389.0000999999975" vgap="10.0">
+					prefHeight="434.0" prefWidth="582.0" vgap="10.0">
 					<children>
 						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
 							prefWidth="225.0" text="First Name:" GridPane.columnIndex="0"
@@ -62,21 +62,54 @@
 						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
 							prefWidth="225.0" text="Password" GridPane.columnIndex="0"
 							GridPane.rowIndex="7" />
-						<PasswordField fx:id="password" prefHeight="50.0" prefWidth="225.0"
-							GridPane.columnIndex="1" GridPane.rowIndex="7" />
-						<Button onAction="#back" font="$x1" mnemonicParsing="false" prefHeight="50.0"
-							prefWidth="225.0" text="Back" GridPane.columnIndex="0"
-							GridPane.halignment="CENTER" GridPane.rowIndex="9"
-							GridPane.valignment="CENTER" />
-						<Button onAction="#addLibrarin" font="$x1" mnemonicParsing="false"
+						<PasswordField fx:id="password" prefHeight="50.0"
+							prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+						<Button font="$x1" mnemonicParsing="false" onAction="#backToAdmin"
+							prefHeight="50.0" prefWidth="225.0" text="Back"
+							GridPane.columnIndex="0" GridPane.halignment="CENTER"
+							GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+						<Button font="$x1" mnemonicParsing="false" onAction="#addLibrarin"
 							prefHeight="50.0" prefWidth="225.0" text="Add Librarian"
 							GridPane.columnIndex="1" GridPane.rowIndex="9" />
+						<Label id="lblfirstname" fx:id="lblFirstName" text=""
+							textFill="RED" GridPane.columnIndex="2" GridPane.halignment="LEFT"
+							GridPane.rowIndex="0" GridPane.valignment="CENTER">
+							<font>
+								<Font name="System Bold Italic" size="12.0" fx:id="x2" />
+							</font>
+						</Label>
+						<Label fx:id="lblFirstName" font="$x2" prefWidth="156.0"
+							text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="0" />
+						<Label id="lblFirstName" fx:id="lblLastName" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="1" />
+						<Label id="lblFirstName" fx:id="lblAddress" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="2" />
+						<Label id="lblFirstName" fx:id="lblContact" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="4" />
+						<Label id="lblFirstName" fx:id="lblDOB" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="3" />
+						<Label id="lblFirstName" fx:id="lblEmail" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="5" />
+						<Label id="lblFirstName" fx:id="lblUsername" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="6" />
+						<Label id="lblFirstName" fx:id="lblPassword" font="$x2"
+							prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+							GridPane.rowIndex="7" />
 					</children>
 					<columnConstraints>
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0"
+							minWidth="10.0" prefWidth="155.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0"
+							minWidth="10.0" prefWidth="220.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0"
+							minWidth="10.0" prefWidth="187.0" />
 					</columnConstraints>
 					<rowConstraints>
 						<RowConstraints minHeight="10.0" prefHeight="30.0"

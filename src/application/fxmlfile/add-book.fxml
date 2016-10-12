@@ -24,7 +24,7 @@
 				<TextField fx:id="txtAuthorName" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Pulisher:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 				<TextField fx:id="txtPublisher" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-				<Button font="$x1" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" text="Back" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+				<Button font="$x1" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="225.0" text="Back" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#addBook" prefHeight="50.0" prefWidth="225.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 			</children>
 			<columnConstraints>

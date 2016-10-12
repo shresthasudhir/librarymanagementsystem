@@ -40,7 +40,7 @@ public class Librarian extends Application {
 	
 	public void startLibrarian(Stage primaryStage,int librarianId) {
 		try {
-			//setLibrarianId(librarianId);
+			setLibrarianId(librarianId);
 			String libUserName = User.getUserFNameLName(librarianId);
 			final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxmlfile/librarian.fxml"));
 			fxmlLoader.getNamespace().put("librarianId", libUserName);
@@ -59,7 +59,7 @@ public class Librarian extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/add-librarian.fxml"));
 			primaryStage.setTitle("LIBRARIAN ADD FROM");
-			primaryStage.setScene(new Scene(root, 490, 600));
+			primaryStage.setScene(new Scene(root, 600, 500));
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

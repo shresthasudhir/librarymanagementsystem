@@ -78,7 +78,7 @@ public class Book extends Application{
 		int save = 0;
 		int bookId = getBookId(isbn);
 		String returnDate = null;
-
+		int update=0;
 		try {
 			Connection con = Database.getConnection();
 			PreparedStatement ps = con.prepareStatement(
@@ -87,11 +87,20 @@ public class Book extends Application{
 			ps.setInt(2, bookId);
 			ps.setString(3, returnDate);
 			save = ps.executeUpdate();
+			System.out.println(save);
+			if (save != 0) {
+				PreparedStatement pss = con.prepareStatement("UPDATE books SET status = ? WHERE id = ?");
+				pss.setInt(1, 2);
+				pss.setInt(2, bookId);
+				update = pss.executeUpdate();
+			} else {
+				System.out.println("Cannot Issue this book"+ isbn);
+			}
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return save;
+		return update;
 
 	}
 

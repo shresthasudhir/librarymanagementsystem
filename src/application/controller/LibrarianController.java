@@ -6,13 +6,15 @@ import javafx.scene.control.TextField;
 import application.model.Admin;
 import application.model.Book;
 import application.model.Librarian;
+import application.model.Login;
 import application.model.Student;
 
 import javafx.event.ActionEvent;
-
+import javafx.fxml.FXML;
+import javafx.scene.AmbientLight;
 import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
-
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LibrarianController {
@@ -51,7 +53,10 @@ public class LibrarianController {
 	@FXML
 	private Label lblWelcome;
 	@FXML
-	private Label librarianId;
+	private Label lblLibrarianId;
+	
+	@FXML
+	private TextField librarianId;
 	
 
 	@FXML
@@ -71,67 +76,78 @@ public class LibrarianController {
 	@FXML
 	Label lblPassword;
 
-	public static boolean isTextFieldEmpty(TextField txtfld) {
-		boolean result = false;
-		if (txtfld.getText() != null && !txtfld.getText().isEmpty()) {
-			result = true;
-		}
-		return result;
-	}
-
-	public static boolean isTextFieldEmpty(TextField txtfld, Label lbl, String sValidationText) {
-		boolean result = true;
-		String c = null;
-		if (!isTextFieldEmpty(txtfld)) {
-			result = false;
-			c = sValidationText;
-		}
-		lbl.setText(c);
-		return result;
-	}
-
-	protected static boolean validateAddLibrarian(String firstname, String lastname) {
-		boolean status = false;
-
-		try {
-			boolean boolFirstName;  // to be continued...
- 		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return status;
-	}
 
 	public void addLibrarin(ActionEvent event) throws Exception {
 		String afirstName = firstname.getText();
 		String aLastName = lastname.getText();
 		String aAddress = address.getText();
 		String aDateOfBirth = dateOfBirth.getText();
-		int aContactNumber = Integer.parseInt(contactNumber.getText().toString());
+		Integer aContactNumber=(Integer) null;
+		if (!(contactNumber.getText().isEmpty())) {
+			 aContactNumber = Integer.parseInt(contactNumber.getText()
+					.toString());
+		}
+		
 		String aEmail = email.getText();
 		String aUserName = username.getText();
 		String aPassword = password.getText();
-		try {
-			int saveLibraryData = Librarian.saveLibrarian(afirstName, aLastName, aAddress, aDateOfBirth, aContactNumber,
-					aUserName, aPassword, aEmail, 2);
-			if (saveLibraryData > 0) {
-				Stage primaryStage = new Stage();
-				((Node) event.getSource()).getScene().getWindow().hide();
-				Admin admin = new Admin();
-				admin.start(primaryStage);
-				System.out.println("Successfully added librarian");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
 
+		boolean bfirstName = ValidationController.isTextFieldEmpty(firstname, lblFirstName,
+				"First name is required.");
+		boolean blastName = ValidationController.isTextFieldEmpty(lastname, lblLastName,
+				"Last name is required.");
+		boolean baddress = ValidationController.isTextFieldEmpty(address, lblAddress,
+				"Address is required.");
+		boolean bdateOfbirth = ValidationController.isTextFieldEmpty(dateOfBirth, lblDOB,
+				"Date Of Birth is required.");
+		boolean bContanctNo = ValidationController.isTextFieldEmpty(contactNumber, lblContact,
+				"Contact No is required.");
+		boolean bemail = ValidationController.isTextFieldEmpty(email, lblEmail,
+				"Email is required.");
+		boolean buername = ValidationController.isTextFieldEmpty(username, lblUsername,
+				"User name is required.");
+		boolean bpassword = ValidationController.isTextFieldEmpty(password, lblPassword,
+				"Password is required.");
+		// boolean b = this.isTextFieldEmpty(password,
+		// lblPassword,"Password is required.");
+
+		if (bfirstName && blastName && baddress && bdateOfbirth && bContanctNo
+				&& bemail && buername && bpassword) {
+
+			try {
+				int saveLibraryData = Librarian.saveLibrarian(afirstName,
+						aLastName, aAddress, aDateOfBirth, aContactNumber,
+						aUserName, aPassword, aEmail, 2);
+				if (saveLibraryData > 0) {
+					Stage primaryStage = new Stage();
+					((Node) event.getSource()).getScene().getWindow().hide();
+					Admin admin = new Admin();
+					admin.start(primaryStage);
+					System.out.println("Successfully added librarian");
+				}
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+	}
+	
+	@FXML
+	public void backToAdmin(ActionEvent event) {
+		Stage primaryStage = new Stage();
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Admin ad = new Admin();
+		System.out.println(ad);
+		ad.start(primaryStage);
 	}
 
 	@FXML
 	public void back(ActionEvent event) {
 		Stage primaryStage = new Stage();
 		((Node) event.getSource()).getScene().getWindow().hide();
-		Admin admin = new Admin();
-		admin.start(primaryStage);
+		Librarian lib = new Librarian();
+		int libId = lib.getLibrarianId();
+		System.out.println(libId);
+		lib.startLibrarian(primaryStage,libId);
 	}
 
 
@@ -193,7 +209,7 @@ public class LibrarianController {
 			}
 		} catch(Exception e) {
 			System.out.println(e);
-		}		
+		}	
 	}
 	
 	
@@ -214,5 +230,13 @@ public class LibrarianController {
 		} catch(Exception e) {
 			System.out.println(e);
 		}		
+	}
+	
+	@FXML
+	public void logout(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Login loginPage = new Login();
+		Stage primaryStage = new Stage();
+		loginPage.start(primaryStage);
 	}
 }

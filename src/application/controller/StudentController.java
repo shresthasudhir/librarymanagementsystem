@@ -53,5 +53,15 @@ public class StudentController {
 		}	
 		
 	}
+	
+	@FXML
+	public void backToLibrarian(ActionEvent event) {
+		Stage primaryStage = new Stage();
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Librarian lib = new Librarian();
+		lib.start(primaryStage);
+	}
+	
+	
 
 }
