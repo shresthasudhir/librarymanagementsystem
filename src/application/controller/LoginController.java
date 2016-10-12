@@ -2,7 +2,6 @@ package application.controller;
 
 import application.model.Admin;
 import application.model.Librarian;
-import application.model.Login;
 import application.model.Student;
 
 import application.model.User;
@@ -18,7 +17,7 @@ import javafx.stage.Stage;
 
 public class LoginController {
 	@FXML
-	private TextField userName;
+	public TextField userName;
 	@FXML
 	private PasswordField passwordField;
 	
@@ -32,6 +31,7 @@ public class LoginController {
 			String password = passwordField.getText();
 			if (User.validateUser(username, password)) {
 				int status = User.getUserStatus(username);
+				int userId = User.getUserId(username);
 	
 				Stage primaryStage = new Stage();
 				if (status == 1) {
@@ -40,20 +40,20 @@ public class LoginController {
 					admin.start(primaryStage);
 
 				} else if (status == 2) {
-					// do librarian stuff
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Librarian librarian = new Librarian();
-					librarian.start(primaryStage);
-								
+					librarian.startLibrarian(primaryStage, userId);
+
 				} else if (status == 3) {
-					// do student stuff
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Student student = new Student();
 					student.start(primaryStage);
+
 				} else if(status == 4){
 					// do something special
 					//errorMessageLabel.setFill(Color.FIREBRICK);
 					errorMessageLabel.setText("Your Library Subcription Expired");
+
 				}
 			}else{
 				errorMessageLabel.setText("Username or Passport didnt Matched");
