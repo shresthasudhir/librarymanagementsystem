@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Librarian extends Application {
+public class Librarian extends Admin{
 	
 	public int librarianId;
 	
@@ -77,32 +77,7 @@ public class Librarian extends Application {
 		}
 	}
 
-	public static int saveLibrarian(String firstname, String lastname, String address, String dateOfBirth,
-			int contactNumber, String username, String password, String email, int status) {
-		int save = 0;
-		try {
-			Connection con = Database.getConnection();
-			PreparedStatement ps = con.prepareStatement(
-					"INSERT INTO users(firstname, lastname, address, dateOfBirth, contactNumber, username, password, email, status) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			ps.setString(1, firstname);
-			ps.setString(2, lastname);
-			ps.setString(3, address);
-			ps.setString(4, dateOfBirth);
-			ps.setInt(5, contactNumber);
-			ps.setString(6, username);
-			ps.setString(7, password);
-			ps.setString(8, email);
-			ps.setInt(9, status);
-			save = ps.executeUpdate();
-			con.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return save;
-
-	}
-
-	public static int deleteLibrarian(int id) {
+public static int deleteLibrarian(int id) {
 		int delete = 0;
 		int status = 0;
 		try {
@@ -128,5 +103,5 @@ public class Librarian extends Application {
 		}
 		return delete;
 	}
-
+	
 }

@@ -44,7 +44,7 @@
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
 					prefWidth="225.0" text="Date Of Birth:" GridPane.columnIndex="0"
 					GridPane.rowIndex="3" />
-				<TextField fx:id="dateOfBirth" prefHeight="50.0"
+				<DatePicker fx:id="dateOfBirth" prefHeight="50.0"
 					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
 					prefWidth="225.0" text="Contact No:" GridPane.columnIndex="0"
@@ -64,8 +64,8 @@
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
 					prefWidth="225.0" text="Password" GridPane.columnIndex="0"
 					GridPane.rowIndex="7" />
-				<PasswordField fx:id="password" prefHeight="50.0" prefWidth="225.0"
-					GridPane.columnIndex="1" GridPane.rowIndex="7" />
+				<PasswordField fx:id="password" prefHeight="50.0"
+					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 				<Button font="$x1" mnemonicParsing="false" prefHeight="50.0"
 					prefWidth="225.0" text="Back" GridPane.columnIndex="0"
 					GridPane.halignment="CENTER" GridPane.rowIndex="9"

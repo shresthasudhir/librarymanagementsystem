@@ -1,8 +1,13 @@
 package application.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.time.LocalDate;
+import java.util.Date;
+
 import application.model.Admin;
 import application.model.Book;
 import application.model.Librarian;
@@ -23,7 +28,7 @@ public class LibrarianController {
 	@FXML
 	private TextField address;
 	@FXML
-	private TextField dateOfBirth;
+	private DatePicker dateOfBirth;
 	@FXML
 	private TextField contactNumber;
 	@FXML
@@ -32,7 +37,7 @@ public class LibrarianController {
 	private TextField username;
 	@FXML
 	private PasswordField password;
-	
+
 	@FXML
 	private TextField txtISBN;
 	@FXML
@@ -41,7 +46,7 @@ public class LibrarianController {
 	private TextField txtAuthorName;
 	@FXML
 	private TextField txtPublisher;
-	
+
 	@FXML
 	private TextField txtIssueBookISBN;
 	@FXML
@@ -52,7 +57,6 @@ public class LibrarianController {
 	private Label lblWelcome;
 	@FXML
 	private Label librarianId;
-	
 
 	@FXML
 	Label lblFirstName;
@@ -94,25 +98,39 @@ public class LibrarianController {
 		boolean status = false;
 
 		try {
-			boolean boolFirstName;  // to be continued...
- 		} catch (Exception e) {
+			boolean boolFirstName; // to be continued...
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return status;
 	}
 
 	public void addLibrarin(ActionEvent event) throws Exception {
+		Admin newLibrarian = new Librarian();
 		String afirstName = firstname.getText();
 		String aLastName = lastname.getText();
 		String aAddress = address.getText();
-		String aDateOfBirth = dateOfBirth.getText();
+
+		LocalDate aDateOfBirth = dateOfBirth.getValue();
+		Date date = java.sql.Date.valueOf(aDateOfBirth);
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
 		int aContactNumber = Integer.parseInt(contactNumber.getText().toString());
 		String aEmail = email.getText();
 		String aUserName = username.getText();
 		String aPassword = password.getText();
+
+		newLibrarian.setFirstname(afirstName);
+		newLibrarian.setLastname(aLastName);
+		newLibrarian.setAddress(aAddress);
+		newLibrarian.setDateOfBirth(sqlDate);
+		newLibrarian.setContactNumber(aContactNumber);
+		newLibrarian.setEmail(aEmail);
+		newLibrarian.setUsername(aUserName);
+		newLibrarian.setPassword(aPassword);
+		newLibrarian.setStatus(2);
 		try {
-			int saveLibraryData = Librarian.saveLibrarian(afirstName, aLastName, aAddress, aDateOfBirth, aContactNumber,
-					aUserName, aPassword, aEmail, 2);
+			int saveLibraryData = newLibrarian.savaDatatoDataBase();
 			if (saveLibraryData > 0) {
 				Stage primaryStage = new Stage();
 				((Node) event.getSource()).getScene().getWindow().hide();
@@ -134,7 +152,6 @@ public class LibrarianController {
 		admin.start(primaryStage);
 	}
 
-
 	@FXML
 	public void deleteLibrarian(ActionEvent event) {
 		int aLibrarianId = Integer.parseInt(librarianId.getText().toString());
@@ -151,7 +168,7 @@ public class LibrarianController {
 			System.out.println(e);
 		}
 	}
-	
+
 	@FXML
 	protected void addStudent(ActionEvent event) {
 		((Node) event.getSource()).getScene().getWindow().hide();
@@ -159,7 +176,7 @@ public class LibrarianController {
 		Stage primaryStage = new Stage();
 		student.addStudent(primaryStage);
 	}
-	
+
 	@FXML
 	protected void addBookPage(ActionEvent event) {
 		((Node) event.getSource()).getScene().getWindow().hide();
@@ -167,7 +184,7 @@ public class LibrarianController {
 		Stage primaryStage = new Stage();
 		book.start(primaryStage);
 	}
-	
+
 	@FXML
 	protected void issueBookPage(ActionEvent event) {
 		((Node) event.getSource()).getScene().getWindow().hide();
@@ -175,8 +192,7 @@ public class LibrarianController {
 		Stage primaryStage = new Stage();
 		book.showIssueBookPage(primaryStage);
 	}
-	
-	
+
 	public void addBook(ActionEvent event) throws Exception {
 		int isbn = Integer.parseInt(txtISBN.getText().toString());
 		String bookName = txtBookName.getText();
@@ -191,17 +207,15 @@ public class LibrarianController {
 				librarian.start(primaryStage);
 				System.out.println("Successfully book added.");
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
-		}		
+		}
 	}
-	
-	
+
 	public void issueBook(ActionEvent event) throws Exception {
 		int isbn = Integer.parseInt(txtIssueBookISBN.getText().toString());
 		int studentId = Integer.parseInt(txtIssueStudentId.getText().toString());
-		
-		
+
 		try {
 			int saveIssueBookData = Book.saveIssueBook(isbn, studentId);
 			if (saveIssueBookData > 0) {
@@ -211,8 +225,8 @@ public class LibrarianController {
 				librarian.start(primaryStage);
 				System.out.println("Successfully book issued.");
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
-		}		
+		}
 	}
 }
