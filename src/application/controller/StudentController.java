@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import application.model.Admin;
+import application.model.Book;
 import application.model.Librarian;
 import application.model.Login;
 import application.model.Student;
@@ -54,6 +55,8 @@ public class StudentController {
 	Label lblUsername;
 	@FXML
 	Label lblPassword;
+
+	private TextField studentId;
 
 	public void addStudent(ActionEvent event) throws Exception {
 		Student newStudent = new Student();
@@ -145,7 +148,20 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 		Stage primaryStage = new Stage();
 		loginPage.start(primaryStage);
 	}
-	
-	
 
+	public void deleteStudentWithId(ActionEvent event) {
+		int aStudentId = Integer.parseInt(studentId.getText().toString());
+		try {
+			int delete = Student.deleteStudentById(aStudentId);
+			if (delete > 0) {
+				Stage primaryStage = new Stage();
+				((Node) event.getSource()).getScene().getWindow().hide();
+				Librarian librarian = new Librarian();
+				librarian.start(primaryStage);
+				System.out.println("Student ID " + aStudentId + " delete successfully");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 }
