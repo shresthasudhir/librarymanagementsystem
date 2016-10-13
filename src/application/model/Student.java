@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import application.controller.StudentController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Student extends Application {
@@ -21,7 +23,7 @@ public class Student extends Application {
 	private String password;
 	private String email;
 	private int status;
-
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -112,6 +114,8 @@ public class Student extends Application {
 	
 	public void startStudent(Stage primaryStage,int userId) {
 		try {
+			StudentController.setStudentId(userId);
+			
 			String studentUserName = User.getUserFNameLName(userId);
 			final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxmlfile/student.fxml"));
 			fxmlLoader.getNamespace().put("stuName", studentUserName);
@@ -129,8 +133,9 @@ public class Student extends Application {
 	public void addStudent(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/add-student.fxml"));
-			primaryStage.setTitle("STUDENT ADD FROM");
-			primaryStage.setScene(new Scene(root, 600, 600));
+			primaryStage.setTitle("STUDENT ADD FORM");
+			primaryStage.setScene(new Scene(root, 570, 550));
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/addStudent.png").toString()));
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,6 +171,7 @@ public class Student extends Application {
 			primaryStage.setTitle("DELETE LIBRARIAN");
 			primaryStage.setScene(new Scene(root, 500, 250));
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/delete.png").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

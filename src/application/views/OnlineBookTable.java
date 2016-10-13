@@ -5,24 +5,18 @@ import java.sql.ResultSet;
 
 import application.model.Database;
 import javafx.application.Application;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-
 import javafx.scene.control.TableColumn;
-
-import javafx.scene.control.TableColumn.CellDataFeatures;
-
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.stage.Stage;
-
 import javafx.util.Callback;
 
-public class LibraryTable extends Application {
+public class OnlineBookTable extends Application {
 
 	private ObservableList<ObservableList> data;
 	private TableView tableview;
@@ -37,7 +31,7 @@ public class LibraryTable extends Application {
 
 		try {
 			c = Database.getConnection();
-			String SQL = "SELECT id, firstname , lastname , address, dateOfBirth, contactNumber, username, email from users WHERE status = 2";
+			String SQL = "SELECT id, bookname , urlLink from online_book_information";
 			ResultSet rs = c.createStatement().executeQuery(SQL);
 			for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
 				final int j = i;
@@ -77,7 +71,7 @@ public class LibraryTable extends Application {
 		tableview = new TableView();
 		buildData();
 		Scene scene = new Scene(tableview,710, 450);
-		stage.setTitle("Librarian view page");
+		stage.setTitle("Online Book Information");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

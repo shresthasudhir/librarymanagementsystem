@@ -17,11 +17,12 @@ public class Login extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/login.fxml"));
 			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
-			primaryStage.setScene(new Scene(root, 300, 275));
+			primaryStage.setScene(new Scene(root, 380, 275));
 			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }

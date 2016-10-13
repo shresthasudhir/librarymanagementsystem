@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import validationsfxml.Popup;
 
 public class LoginController {
 	@FXML
@@ -29,6 +30,9 @@ public class LoginController {
 		try {
 			String username = userName.getText();
 			String password = passwordField.getText();
+			if (username.isEmpty() || password.isEmpty()) {
+				Popup.getEmptyLoginNotification();
+			} else {
 			if (User.validateUser(username, password)) {
 				int status = User.getUserStatus(username);
 				int userId = User.getUserId(username);
@@ -56,7 +60,10 @@ public class LoginController {
 
 				}
 			}else{
-				errorMessageLabel.setText("Username or Passport didnt Matched");
+					// errorMessageLabel.setText("Username or Passport didnt Matched");
+					Popup.getInvalidLoginNotification();
+					passwordField.clear();
+				}
 			}
 
 		} catch (Exception e) {

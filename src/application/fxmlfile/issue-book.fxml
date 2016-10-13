@@ -5,33 +5,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
+<?import validationsfxml.*?>
 
-<AnchorPane prefHeight="221.00009999999747" prefWidth="426.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LibrarianController">
-	<!-- TODO Add Nodes -->
-	<children>
-		<Label layoutX="14.0" layoutY="14.0" prefWidth="88.0" text="Issue Book">
-			<font>
-				<Font name="System Bold" size="16.0" fx:id="x1" />
-			</font>
-		</Label>
-		<GridPane hgap="10.0" layoutX="14.0" layoutY="36.0" prefHeight="162.0" prefWidth="394.0" vgap="10.0">
-			<children>
-				<TextField fx:id="txtIssueBookISBN" prefHeight="48.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="35.0" prefWidth="199.0" text="Student Id:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-				<TextField fx:id="txtIssueStudentId" prefHeight="50.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="35.0" prefWidth="164.0" text="Book ISBN:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-				<Button font="$x1" mnemonicParsing="false" onAction="#issueBook" prefHeight="50.0" prefWidth="225.0" text="Issue Book" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-				<Button font="$x1" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="100.0" text="Back" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-			</children>
-			<columnConstraints>
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="174.0" />
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
-			</columnConstraints>
-			<rowConstraints>
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-			</rowConstraints>
-		</GridPane>
-	</children>
+<AnchorPane prefHeight="207.00009999999747" prefWidth="501.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.controller.LibrarianController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="14.0" layoutY="14.0" prefWidth="88.0" text="Issue Book">
+      <font>
+        <Font name="System Bold" size="16.0" fx:id="x1" />
+      </font>
+    </Label>
+    <GridPane hgap="10.0" layoutX="14.0" layoutY="37.0" prefHeight="156.0001220703125" prefWidth="473.0" vgap="10.0">
+      <children>
+        <NumberTextFields fx:id="txtIssueBookISBN" prefHeight="48.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label alignment="CENTER_RIGHT" font="$x1" prefHeight="35.0" prefWidth="199.0" text="Student Id:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <NumberTextFields fx:id="txtIssueStudentId" prefHeight="50.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label alignment="CENTER_RIGHT" font="$x1" prefHeight="35.0" prefWidth="164.0" text="Book ISBN:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Button font="$x1" mnemonicParsing="false" onAction="#issueBook" prefHeight="50.0" prefWidth="225.0" text="Issue Book" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button font="$x1" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="100.0" text="Back" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+        <Label id="lblFirstName" fx:id="lblISBN" prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="0">
+          <font>
+            <Font name="System Bold Italic" size="12.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Label id="lblFirstName" fx:id="lblStudentId" font="$x2" prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="174.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="210.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
 </AnchorPane>

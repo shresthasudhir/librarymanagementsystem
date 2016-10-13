@@ -70,10 +70,11 @@ public class StudentTable extends Application {
 	public void start(Stage stage) throws Exception {
 		tableview = new TableView();
 		buildData();
-		Scene scene = new Scene(tableview);
+		Scene scene = new Scene(tableview,730, 450);
 		stage.setTitle("Student view page");
 		stage.setScene(scene);
 		stage.show();
-
+		stage.setResizable(false);
+		stage.setFullScreen(false);
 	}
 }

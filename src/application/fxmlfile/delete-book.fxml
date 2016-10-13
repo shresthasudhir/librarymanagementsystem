@@ -5,9 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
+<?import validationsfxml.NumberTextFields?>
 
 <AnchorPane prefHeight="196.0" prefWidth="348.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
 	fx:controller="application.controller.BookController">
 	<!-- TODO Add Nodes -->
 	<children>
@@ -23,17 +24,17 @@
 					prefHeight="50.0" prefWidth="225.0" text="Book Id:"
 					GridPane.columnIndex="0" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-				<TextField fx:id="bookId" prefHeight="50.0" prefWidth="225.0"
+				<NumberTextFields  fx:id="bookId" prefHeight="50.0" prefWidth="225.0"
 					GridPane.columnIndex="1" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#deleteBookWithId"
 					prefHeight="50.0" prefWidth="225.0" text="Delete Book"
 					GridPane.columnIndex="1" GridPane.halignment="CENTER"
 					GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-				<Button alignment="CENTER" font="$x1" mnemonicParsing="false"
-					onAction="#backToLibrarian" prefHeight="50.0" prefWidth="90.0"
-					text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-					GridPane.valignment="CENTER" />
+				<Button alignment="CENTER" contentDisplay="LEFT" font="$x1"
+					mnemonicParsing="false" onAction="#backToLibrarian" prefHeight="50.0"
+					prefWidth="90.0" text="Back" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 			</children>
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"

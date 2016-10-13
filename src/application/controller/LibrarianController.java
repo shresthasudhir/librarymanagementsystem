@@ -89,11 +89,15 @@ public class LibrarianController {
 	@FXML
 	Label lblISBN;
 	@FXML
+	Label lblStudentId;
+	@FXML
 	Label lblBookName;
 	@FXML
 	Label lblAuthor;
 	@FXML
 	Label lblPublisher;
+	@FXML
+	Label lblStdId;
 
 	public static boolean isTextFieldEmpty(TextField txtfld) {
 		boolean result = false;
@@ -153,8 +157,14 @@ public class LibrarianController {
 			vcontactNum = ValidationController.validateContactNumber(text);
 
 		}
+		
+		boolean validUsername = false;
+		if(buername){
+		validUsername = ValidationController.checkUsernameExist(username.getText());
+		}
+		
 
-		if (bfirstName && blastName && baddress && bdateOfbirth && bContanctNo && bemail && buername && bpassword) {
+		if (bfirstName && blastName && baddress && bdateOfbirth && bContanctNo && bemail && buername && bpassword && validUsername) {
 
 			String afirstName = firstname.getText();
 			String aLastName = lastname.getText();
@@ -216,18 +226,29 @@ public class LibrarianController {
 
 	@FXML
 	public void deleteLibrarian(ActionEvent event) {
-		int aLibrarianId = Integer.parseInt(librarianId.getText().toString());
+		String libid = librarianId.getText();
+		boolean bLibId = ValidationController.isTextFieldEmpty(librarianId,
+				lblStudentId, "Library Id is required.");
+		if (bLibId) {
+			int aLibrarianId = Integer.parseInt(librarianId.getText()
+					.toString());
 		try {
 			int delete = Librarian.deleteLibrarian(aLibrarianId);
 			if (delete > 0) {
 				Stage primaryStage = new Stage();
 				((Node) event.getSource()).getScene().getWindow().hide();
+					Popup.getLibrarianDeleteNotification();
 				Admin admin = new Admin();
 				admin.start(primaryStage);
-				System.out.println("Librarian " + aLibrarianId + " delete successfully");
+//					System.out.println("Librarian " + aLibrarianId
 			}
+				else
+				{
+					Popup.wrongLibrarianDeleteNotification();
+				}
 		} catch (Exception e) {
 			System.out.println(e);
+			}
 		}
 	}
 
@@ -294,6 +315,11 @@ public class LibrarianController {
 	}
 
 	public void issueBook(ActionEvent event) throws Exception {
+		boolean bISBN = ValidationController.isTextFieldEmpty(txtIssueBookISBN, lblISBN,
+				"ISBN is required.");
+		boolean bStdId = ValidationController.isTextFieldEmpty(txtIssueStudentId,
+				lblStudentId, "Student Id is required.");
+		if (bISBN && bStdId) {
 		int isbn = Integer.parseInt(txtIssueBookISBN.getText().toString());
 		int studentId = Integer.parseInt(txtIssueStudentId.getText().toString());
 
@@ -302,12 +328,18 @@ public class LibrarianController {
 			if (saveIssueBookData > 0) {
 				Stage primaryStage = new Stage();
 				((Node) event.getSource()).getScene().getWindow().hide();
+					Popup.getBookSavedNotification();
 				Librarian librarian = new Librarian();
 				librarian.start(primaryStage);
-				System.out.println("Successfully book issued.");
+					//System.out.println("Successfully book issued.");
 			}
+				else
+				{
+					Popup.wrongissuseBookDeleteNotification();
+				}
 		} catch (Exception e) {
 			System.out.println(e);
+			}
 		}
 	}
 

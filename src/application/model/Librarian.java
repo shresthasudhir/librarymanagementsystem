@@ -8,17 +8,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class Librarian extends Admin{
-	
+public class Librarian extends Admin {
+
 	public int librarianId;
-	
-	public void setLibrarianId(int user_id){
-	    this.librarianId = user_id;
+
+	public void setLibrarianId(int user_id) {
+		this.librarianId = user_id;
 	}
-	
-	public int getLibrarianId(){
+
+	public int getLibrarianId() {
 		return this.librarianId;
 	}
 
@@ -37,16 +38,16 @@ public class Librarian extends Admin{
 			e.printStackTrace();
 		}
 	}
-	
-	public void startLibrarian(Stage primaryStage,int librarianId) {
+
+	public void startLibrarian(Stage primaryStage, int librarianId) {
 		try {
 			setLibrarianId(librarianId);
 			String libUserName = User.getUserFNameLName(librarianId);
 			final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxmlfile/librarian.fxml"));
 			fxmlLoader.getNamespace().put("librarianId", libUserName);
-			
+
 			Parent root = fxmlLoader.load();
-			
+
 			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM - Librarian Page");
 			primaryStage.setScene(new Scene(root, 490, 500));
 			primaryStage.show();
@@ -70,14 +71,15 @@ public class Librarian extends Admin{
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/delete-librarian.fxml"));
 			primaryStage.setTitle("DELETE LIBRARIAN");
-			primaryStage.setScene(new Scene(root, 500, 250));
+			primaryStage.setScene(new Scene(root, 500, 230));
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/delete.png").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-public static int deleteLibrarian(int id) {
+	public static int deleteLibrarian(int id) {
 		int delete = 0;
 		int status = 0;
 		try {

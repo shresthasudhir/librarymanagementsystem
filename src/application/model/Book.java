@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Book extends Application {
@@ -56,6 +57,7 @@ public class Book extends Application {
 			primaryStage.setTitle("Issue Book Page");
 			primaryStage.setScene(new Scene(root, 475, 250));
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/issueBook.png").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -175,8 +177,9 @@ public class Book extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/delete-book.fxml"));
 			primaryStage.setTitle("Delete Book Page");
-			primaryStage.setScene(new Scene(root, 475, 350));
+			primaryStage.setScene(new Scene(root, 380, 230));
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/delete.png").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -186,13 +189,13 @@ public class Book extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/return-book.fxml"));
 			primaryStage.setTitle("Retrun Book Page");
-			primaryStage.setScene(new Scene(root, 475, 350));
+			primaryStage.setScene(new Scene(root, 475, 300));
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/returnBook.png").toString()));
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 	
 }
 

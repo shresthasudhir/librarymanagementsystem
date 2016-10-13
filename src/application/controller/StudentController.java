@@ -8,6 +8,9 @@ import application.model.Book;
 import application.model.Librarian;
 import application.model.Login;
 import application.model.Student;
+import application.views.LibraryTable;
+import application.views.OnlineBookTable;
+import application.views.StudentBookDueDate;
 import application.views.StudentTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +24,16 @@ import validationsfxml.Popup;
 import validationsfxml.ValidationController;
 
 public class StudentController {
+
+	private static int spStudentId;
+
+	public static void setStudentId(int stuId) {
+		spStudentId = stuId;
+	}
+
+	public static int getStudentId() {
+		return spStudentId;
+	}
 
 	@FXML
 	private TextField firstname;
@@ -38,7 +51,7 @@ public class StudentController {
 	private TextField username;
 	@FXML
 	private PasswordField password;
-	
+
 	@FXML
 	Label lblFirstName;
 	@FXML
@@ -55,16 +68,17 @@ public class StudentController {
 	Label lblUsername;
 	@FXML
 	Label lblPassword;
-
+	@FXML
 	private TextField studentId;
 
 	public void addStudent(ActionEvent event) throws Exception {
 		Student newStudent = new Student();
-		
+
 		boolean bfirstName = ValidationController.isTextFieldEmpty(firstname, lblFirstName, "First name is required.");
 		boolean blastName = ValidationController.isTextFieldEmpty(lastname, lblLastName, "Last name is required.");
 		boolean baddress = ValidationController.isTextFieldEmpty(address, lblAddress, "Address is required.");
-		boolean bdateOfbirth = ValidationController.isDatePickerFieldEmpty(dateOfBirth, lblDOB,"Date Of Birth is required.");
+		boolean bdateOfbirth = ValidationController.isDatePickerFieldEmpty(dateOfBirth, lblDOB,
+				"Date Of Birth is required.");
 		boolean bContanctNo = ValidationController.isTextFieldEmpty(contactNumber, lblContact,
 				"Contact No is required.");
 		boolean bemail = ValidationController.isTextFieldEmpty(email, lblEmail, "Email is required.");
@@ -72,22 +86,28 @@ public class StudentController {
 		boolean bpassword = ValidationController.isTextFieldEmpty(password, lblPassword, "Password is required.");
 		// boolean b = this.isTextFieldEmpty(password,
 		// lblPassword,"Password is required.");
-		
+
 		boolean vemail = true;
 		boolean vcontactNum = true;
 		if (bemail) {
 			vemail = ValidationController.validateEmail(email.getText());
 		}
-		
+
 		if (bContanctNo) {
 			String text = contactNumber.getText();
-			//int num = Integer.parseInt(text);
+			// int num = Integer.parseInt(text);
 			vcontactNum = ValidationController.validateContactNumber(text);
 
 		}
-		
-if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail && buername && bpassword) {
-			
+
+		boolean validUsername = false;
+		if (buername) {
+			validUsername = ValidationController.checkUsernameExist(username.getText());
+		}
+
+		if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail && buername && bpassword
+				&& validUsername) {
+
 			String afirstName = firstname.getText();
 			String aLastName = lastname.getText();
 			String aAddress = address.getText();
@@ -117,7 +137,7 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Librarian librarian = new Librarian();
 					librarian.start(primaryStage);
-					//System.out.println("Successfully added Student");
+					// System.out.println("Successfully added Student");
 					Popup.getStudentSavedNotification();
 				}
 			} catch (Exception e) {
@@ -125,14 +145,15 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 			}
 		}
 	}
-	
+
 	@FXML
 	public void seeBookDueDate(ActionEvent event) throws Exception {
-		StudentTable stuDyanamicTable = new StudentTable();
+		int studentId = StudentController.getStudentId();
+		StudentBookDueDate stuDyanamicTable = new StudentBookDueDate();
 		Stage primaryStage = new Stage();
-		stuDyanamicTable.start(primaryStage);
+		stuDyanamicTable.startBookDueDate(primaryStage, studentId);
 	}
-	
+
 	@FXML
 	public void backToLibrarian(ActionEvent event) {
 		Stage primaryStage = new Stage();
@@ -140,7 +161,7 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 		Librarian lib = new Librarian();
 		lib.start(primaryStage);
 	}
-	
+
 	@FXML
 	public void logout(ActionEvent event) {
 		((Node) event.getSource()).getScene().getWindow().hide();
@@ -150,18 +171,33 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 	}
 
 	public void deleteStudentWithId(ActionEvent event) {
-		int aStudentId = Integer.parseInt(studentId.getText().toString());
-		try {
-			int delete = Student.deleteStudentById(aStudentId);
-			if (delete > 0) {
-				Stage primaryStage = new Stage();
-				((Node) event.getSource()).getScene().getWindow().hide();
-				Librarian librarian = new Librarian();
-				librarian.start(primaryStage);
-				System.out.println("Student ID " + aStudentId + " delete successfully");
+		String stdid = studentId.getText();
+		if (stdid.isEmpty()) {
+			Popup.emptyStudentDeleteNotification();
+		} else {
+			int aStudentId = Integer.parseInt(studentId.getText().toString());
+			try {
+				int delete = Student.deleteStudentById(aStudentId);
+				if (delete > 0) {
+					Stage primaryStage = new Stage();
+					((Node) event.getSource()).getScene().getWindow().hide();
+					Popup.getStudentDeleteNotification();
+					Librarian librarian = new Librarian();
+					librarian.start(primaryStage);
+
+				} else {
+					Popup.wrongStudentDeleteNotification();
+				}
+			} catch (Exception e) {
+				System.out.println(e);
 			}
-		} catch (Exception e) {
-			System.out.println(e);
 		}
+	}
+
+	@FXML
+	public void onlineBookPage(ActionEvent event) throws Exception {
+		OnlineBookTable dynamicTable = new OnlineBookTable();
+		Stage primaryStage = new Stage();
+		dynamicTable.start(primaryStage);
 	}
 }
