@@ -35,7 +35,7 @@
 						<Button onAction="#deleteStudent" mnemonicParsing="false" prefHeight="50.0"
 							prefWidth="210.0" text="Delete Student" GridPane.columnIndex="2"
 							GridPane.rowIndex="4" />
-						<Button mnemonicParsing="false" prefHeight="50.0"
+						<Button onAction="#searchStudent" mnemonicParsing="false" prefHeight="50.0"
 							prefWidth="210.0" text="Search Student" GridPane.rowIndex="6" />
 						<Button mnemonicParsing="false" onAction="#logout"
 							prefHeight="50.0" prefWidth="210.0" text="Logout"

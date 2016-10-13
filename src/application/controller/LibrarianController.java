@@ -338,4 +338,10 @@ public class LibrarianController {
 		Stage primaryStage = new Stage();
 		book.returnBookPage(primaryStage);
 	}
+	public void searchStudent(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Student book = new Student();
+		Stage primaryStage = new Stage();
+		book.searchStudentPage(primaryStage);
+	}
 }

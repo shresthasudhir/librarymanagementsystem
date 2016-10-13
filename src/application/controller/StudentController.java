@@ -1,26 +1,35 @@
 package application.controller;
 
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 import application.model.Admin;
 import application.model.Book;
 import application.model.Librarian;
 import application.model.Login;
 import application.model.Student;
+import application.views.SearchStudent;
 import application.views.StudentTable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import validationsfxml.Popup;
 import validationsfxml.ValidationController;
 
-public class StudentController {
+public class StudentController{
 
 	@FXML
 	private TextField firstname;
@@ -117,7 +126,6 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Librarian librarian = new Librarian();
 					librarian.start(primaryStage);
-					//System.out.println("Successfully added Student");
 					Popup.getStudentSavedNotification();
 				}
 			} catch (Exception e) {
@@ -164,4 +172,12 @@ if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail
 			System.out.println(e);
 		}
 	}
+	@FXML
+	private TextField filterField;
+	public  void searchStudent(ActionEvent event) {
+		String afilterField = filterField.getText();
+		SearchStudent sh = new SearchStudent();
+		sh.searchStudent(afilterField);
+	}
+
 }
