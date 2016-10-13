@@ -47,7 +47,7 @@ public class Librarian extends Admin{
 			
 			Parent root = fxmlLoader.load();
 			
-			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
+			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM - Librarian Page");
 			primaryStage.setScene(new Scene(root, 490, 500));
 			primaryStage.show();
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class Librarian extends Admin{
 		}
 	}
 
-	public void deleteLibrarin(Stage primaryStage) {
+	public void deleteLibrarian(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/delete-librarian.fxml"));
 			primaryStage.setTitle("DELETE LIBRARIAN");
@@ -103,5 +103,4 @@ public static int deleteLibrarian(int id) {
 		}
 		return delete;
 	}
-	
 }

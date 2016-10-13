@@ -23,7 +23,7 @@ public class AdminController {
 		((Node) event.getSource()).getScene().getWindow().hide();
 		Librarian librarin = new Librarian();
 		Stage primaryStage = new Stage();
-		librarin.deleteLibrarin(primaryStage);
+		librarin.deleteLibrarian(primaryStage);
 	}
 
 	public void seeAllLibrarin(ActionEvent event) throws Exception {

@@ -6,34 +6,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="196.0" prefWidth="348.0"
+<AnchorPane prefHeight="286.0" prefWidth="489.0"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="application.controller.LibrarianController">
+	fx:controller="application.controller.BookController">
 	<!-- TODO Add Nodes -->
 	<children>
-		<Label layoutX="14.0" layoutY="14.0" text="Delete Librarian">
+		<Label layoutX="14.0" layoutY="14.0" text="Return Book">
 			<font>
 				<Font name="System Bold" size="16.0" fx:id="x1" />
 			</font>
 		</Label>
 		<GridPane hgap="10.0" layoutX="14.0" layoutY="45.0"
-			prefHeight="133.0" prefWidth="313.0" vgap="10.0">
+			prefHeight="203.0" prefWidth="422.0" vgap="10.0">
 			<children>
 				<Label alignment="CENTER_RIGHT" contentDisplay="LEFT" font="$x1"
-					prefHeight="50.0" prefWidth="225.0" text="Librarian Id:"
+					prefHeight="50.0" prefWidth="225.0" text="Book ISBN:"
 					GridPane.columnIndex="0" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-				<TextField fx:id="librarianId" prefHeight="50.0"
-					prefWidth="225.0" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-				<Button font="$x1" mnemonicParsing="false" onAction="#deleteLibrarian"
-					prefHeight="50.0" prefWidth="225.0" text="Delete Librarian"
+				<TextField fx:id="txtIsbn" prefHeight="50.0" prefWidth="225.0"
 					GridPane.columnIndex="1" GridPane.halignment="CENTER"
-					GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+				<Button font="$x1" mnemonicParsing="false" onAction="#returnBook"
+					prefHeight="50.0" prefWidth="225.0" text="Return Book"
+					GridPane.columnIndex="1" GridPane.halignment="CENTER"
+					GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 				<Button alignment="CENTER" font="$x1" mnemonicParsing="false"
-					onAction="#backToAdmin" prefHeight="50.0" prefWidth="90.0" text="Back"
-					GridPane.halignment="CENTER" GridPane.rowIndex="1"
+					onAction="#backToLibrarian" prefHeight="50.0" prefWidth="90.0"
+					text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2"
 					GridPane.valignment="CENTER" />
+				<Label alignment="CENTER_RIGHT" contentDisplay="LEFT" font="$x1"
+					prefHeight="50.0" prefWidth="225.0" text="Student Id"
+					GridPane.rowIndex="1" />
+				<TextField fx:id="studentId" prefHeight="50.0" prefWidth="225.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="1" />
 			</children>
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
@@ -42,6 +47,8 @@
 					prefWidth="100.0" />
 			</columnConstraints>
 			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
 				<RowConstraints minHeight="10.0" prefHeight="30.0"
 					vgrow="SOMETIMES" />
 				<RowConstraints minHeight="10.0" prefHeight="30.0"

@@ -2,6 +2,7 @@ package application.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -141,5 +142,42 @@ public class Student extends Application {
 			System.out.println(e);
 		}
 		return save;
+	}
+	
+	public void deleteStudentById(Stage primaryStage) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/delete-student.fxml"));
+			primaryStage.setTitle("DELETE LIBRARIAN");
+			primaryStage.setScene(new Scene(root, 500, 250));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static int deleteStudentById(int id) {
+		int delete = 0;
+		int status = 0;
+		try {
+			Connection con = Database.getConnection();
+			PreparedStatement checkStatus = con.prepareStatement("SELECT status FROM users WHERE id = ?");
+			checkStatus.setInt(1, id);
+			ResultSet rs = checkStatus.executeQuery();
+			if (rs.next()) {
+				status = rs.getInt("status");
+			}
+			System.out.println(status);
+			if (status != 4) {
+				PreparedStatement ps = con.prepareStatement("UPDATE users SET status = ? WHERE id = ?");
+				ps.setInt(1, 4);
+				ps.setInt(2, id);
+				delete = ps.executeUpdate();
+			} else {
+				System.out.println("Student " + id + " is already deleted");
+			}
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return delete;
 	}
 }

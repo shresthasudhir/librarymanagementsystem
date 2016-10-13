@@ -1,6 +1,7 @@
 package application.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,6 +19,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.AmbientLight;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -116,7 +119,8 @@ public class LibrarianController {
 		boolean bfirstName = ValidationController.isTextFieldEmpty(firstname, lblFirstName, "First name is required.");
 		boolean blastName = ValidationController.isTextFieldEmpty(lastname, lblLastName, "Last name is required.");
 		boolean baddress = ValidationController.isTextFieldEmpty(address, lblAddress, "Address is required.");
-		boolean bdateOfbirth = ValidationController.isDatePickerFieldEmpty(dateOfBirth, lblDOB,"Date Of Birth is required.");
+		boolean bdateOfbirth = ValidationController.isDatePickerFieldEmpty(dateOfBirth, lblDOB,
+				"Date Of Birth is required.");
 		boolean bContanctNo = ValidationController.isTextFieldEmpty(contactNumber, lblContact,
 				"Contact No is required.");
 		boolean bemail = ValidationController.isTextFieldEmpty(email, lblEmail, "Email is required.");
@@ -124,11 +128,9 @@ public class LibrarianController {
 		boolean bpassword = ValidationController.isTextFieldEmpty(password, lblPassword, "Password is required.");
 		// boolean b = this.isTextFieldEmpty(password,
 		// lblPassword,"Password is required.");
-		
-		
 
 		if (bfirstName && blastName && baddress && bdateOfbirth && bContanctNo && bemail && buername && bpassword) {
-			
+
 			String afirstName = firstname.getText();
 			String aLastName = lastname.getText();
 			String aAddress = address.getText();
@@ -248,7 +250,6 @@ public class LibrarianController {
 
 	}
 
-
 	public void issueBook(ActionEvent event) throws Exception {
 		int isbn = Integer.parseInt(txtIssueBookISBN.getText().toString());
 		int studentId = Integer.parseInt(txtIssueStudentId.getText().toString());
@@ -269,9 +270,29 @@ public class LibrarianController {
 
 	@FXML
 	public void logout(ActionEvent event) {
+
 		((Node) event.getSource()).getScene().getWindow().hide();
 		Login loginPage = new Login();
 		Stage primaryStage = new Stage();
 		loginPage.start(primaryStage);
+	}
+
+	public void deleteBook(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Book book = new Book();
+		Stage primaryStage = new Stage();
+		book.deleteBookByLibrarian(primaryStage);
+	}
+	public void deleteStudent(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Student student = new Student();
+		Stage primaryStage = new Stage();
+		student.deleteStudentById(primaryStage);
+	}
+	public void returnBook(ActionEvent event) {
+		((Node) event.getSource()).getScene().getWindow().hide();
+		Book book = new Book();
+		Stage primaryStage = new Stage();
+		book.returnBookPage(primaryStage);
 	}
 }
