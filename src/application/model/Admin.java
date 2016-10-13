@@ -14,7 +14,7 @@ public class Admin extends Application {
 	private String lastname;
 	private String address;
 	private java.sql.Date dateOfBirth;
-	private int contactNumber;
+	private long contactNumber;
 	private String username;
 	private String password;
 	private String email;
@@ -52,11 +52,11 @@ public class Admin extends Application {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public int getContactNumber() {
+	public long getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(int contactNumber) {
+	public void setContactNumber(long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -114,7 +114,7 @@ public class Admin extends Application {
 			ps.setString(2, getLastname());
 			ps.setString(3, getAddress());
 			ps.setDate(4, getDateOfBirth());
-			ps.setInt(5, getContactNumber());
+			ps.setLong(5, getContactNumber());
 			ps.setString(6, getUsername());
 			ps.setString(7, getPassword());
 			ps.setString(8, getEmail());

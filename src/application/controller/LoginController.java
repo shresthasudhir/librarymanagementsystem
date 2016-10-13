@@ -47,7 +47,7 @@ public class LoginController {
 				} else if (status == 3) {
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Student student = new Student();
-					student.start(primaryStage);
+					student.startStudent(primaryStage,userId);
 
 				} else if(status == 4){
 					// do something special

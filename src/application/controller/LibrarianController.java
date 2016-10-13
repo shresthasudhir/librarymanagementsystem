@@ -21,6 +21,8 @@ import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import validationsfxml.Popup;
+import validationsfxml.ValidationController;
 
 public class LibrarianController {
 	@FXML
@@ -80,6 +82,16 @@ public class LibrarianController {
 	@FXML
 	Label lblPassword;
 
+	// For Add Book
+	@FXML
+	Label lblISBN;
+	@FXML
+	Label lblBookName;
+	@FXML
+	Label lblAuthor;
+	@FXML
+	Label lblPublisher;
+
 	public static boolean isTextFieldEmpty(TextField txtfld) {
 		boolean result = false;
 		if (txtfld.getText() != null && !txtfld.getText().isEmpty()) {
@@ -125,9 +137,20 @@ public class LibrarianController {
 		// boolean b = this.isTextFieldEmpty(password,
 		// lblPassword,"Password is required.");
 		
+		boolean vemail = true;
+		boolean vcontactNum = true;
+		if (bemail) {
+			vemail = ValidationController.validateEmail(email.getText());
+		}
 		
+		if (bContanctNo) {
+			String text = contactNumber.getText();
+			//int num = Integer.parseInt(text);
+			vcontactNum = ValidationController.validateContactNumber(text);
 
-		if (bfirstName && blastName && baddress && bdateOfbirth && bContanctNo && bemail && buername && bpassword) {
+		}
+
+		if (bfirstName && blastName && baddress && bdateOfbirth && vcontactNum && vemail && buername && bpassword) {
 			
 			String afirstName = firstname.getText();
 			String aLastName = lastname.getText();
@@ -136,7 +159,7 @@ public class LibrarianController {
 			Date date = java.sql.Date.valueOf(aDateOfBirth);
 			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-			int aContactNumber = Integer.parseInt(contactNumber.getText().toString());
+			long aContactNumber = Long.parseLong(contactNumber.getText().toString());
 
 			String aEmail = email.getText();
 			String aUserName = username.getText();
@@ -158,7 +181,8 @@ public class LibrarianController {
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Admin admin = new Admin();
 					admin.start(primaryStage);
-					System.out.println("Successfully added librarian");
+					// System.out.println("Successfully added librarian");
+					Popup.getLibrarySavedNotification();
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -228,26 +252,42 @@ public class LibrarianController {
 	}
 
 	public void addBook(ActionEvent event) throws Exception {
-		int isbn = Integer.parseInt(txtISBN.getText().toString());
-		String bookName = txtBookName.getText();
-		String authorName = txtAuthorName.getText();
-		String publisher = txtPublisher.getText();
-		try {
-			int saveBookData = Book.saveBook(isbn, bookName, authorName, publisher);
-			if (saveBookData > 0) {
-				Stage primaryStage = new Stage();
-				((Node) event.getSource()).getScene().getWindow().hide();
-				Librarian librarian = new Librarian();
-				librarian.start(primaryStage);
-				System.out.println("Successfully book added.");
+
+		boolean bISBN = ValidationController.isTextFieldEmpty(txtISBN, lblISBN,
+				"ISBN is required.");
+		boolean bName = ValidationController.isTextFieldEmpty(txtBookName,
+				lblBookName, "Book name is required.");
+		boolean bAuthor = ValidationController.isTextFieldEmpty(txtAuthorName,
+				lblAuthor, "Author is required.");
+		boolean bPublisher = ValidationController.isTextFieldEmpty(
+				txtPublisher, lblPublisher, "Publisher is required.");
+		boolean vISBN=true;
+		
+
+		if (bISBN && bName && bAuthor && bPublisher) {
+
+			int isbn = Integer.parseInt(txtISBN.getText().toString());
+			String bookName = txtBookName.getText();
+			String authorName = txtAuthorName.getText();
+			String publisher = txtPublisher.getText();
+			try {
+				int saveBookData = Book.saveBook(isbn, bookName, authorName,
+						publisher);
+				if (saveBookData > 0) {
+					Stage primaryStage = new Stage();
+					((Node) event.getSource()).getScene().getWindow().hide();
+					Librarian librarian = new Librarian();
+					librarian.start(primaryStage);
+					//System.out.println("Successfully book added.");
+					Popup.getBookSavedNotification();
+				}
+			} catch (Exception e) {
+				System.out.println(e);
+
 			}
-		} catch (Exception e) {
-			System.out.println(e);
 
 		}
-
 	}
-
 
 	public void issueBook(ActionEvent event) throws Exception {
 		int isbn = Integer.parseInt(txtIssueBookISBN.getText().toString());

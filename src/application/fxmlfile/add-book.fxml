@@ -5,8 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
+<?import validationsfxml.NumberTextFields?>
 
-<AnchorPane prefHeight="319.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LibrarianController">
+<AnchorPane prefHeight="345.0" prefWidth="474.0"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+	fx:controller="application.controller.LibrarianController">
 	<!-- TODO Add Nodes -->
 	<children>
 		<Label layoutX="14.0" layoutY="14.0" text="Add Book">
@@ -14,30 +17,74 @@
 				<Font name="System Bold" size="16.0" fx:id="x1" />
 			</font>
 		</Label>
-		<GridPane hgap="10.0" layoutX="14.0" layoutY="44.0" prefHeight="345.0" prefWidth="408.0" vgap="10.0">
+		<GridPane hgap="10.0" layoutX="14.0" layoutY="44.0"
+			prefHeight="287.0" prefWidth="446.0" vgap="10.0">
 			<children>
-				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="ISBN_No:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-				<TextField fx:id="txtISBN" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Name:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-				<TextField fx:id="txtBookName" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Author:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-				<TextField fx:id="txtAuthorName" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Pulisher:" textAlignment="LEFT" textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-				<TextField fx:id="txtPublisher" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-				<Button font="$x1" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="225.0" text="Back" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-				<Button font="$x1" mnemonicParsing="false" onAction="#addBook" prefHeight="50.0" prefWidth="225.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
+					prefWidth="225.0" text="ISBN_No:" textAlignment="LEFT" textOverrun="CLIP"
+					GridPane.columnIndex="0" GridPane.halignment="CENTER"
+					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+				<NumberTextFields fx:id="txtISBN" prefHeight="50.0"
+					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
+					prefWidth="225.0" text="Name:" textAlignment="LEFT" textOverrun="CLIP"
+					GridPane.columnIndex="0" GridPane.rowIndex="1" />
+				<TextField fx:id="txtBookName" prefHeight="50.0" promptText="Book Name"
+					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
+					prefWidth="225.0" text="Author:" textAlignment="LEFT" textOverrun="CLIP"
+					GridPane.columnIndex="0" GridPane.rowIndex="2"  />
+				<TextField fx:id="txtAuthorName" prefHeight="50.0" promptText="Author Name"
+					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
+					prefWidth="225.0" text="Pulisher:" textAlignment="LEFT"
+					textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+				<TextField fx:id="txtPublisher" prefHeight="50.0" promptText="Publisher"
+					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<Button font="$x1" mnemonicParsing="false" onAction="#back"
+					prefHeight="34.0" prefWidth="100.0" text="Back"
+					GridPane.columnIndex="0" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+				<Button font="$x1" mnemonicParsing="false" onAction="#addBook"
+					prefHeight="50.0" prefWidth="225.0" text="Add Book"
+					GridPane.columnIndex="1" GridPane.rowIndex="5" />
+				<Label id="lblFirstName" fx:id="lblISBN" prefWidth="156.0"
+					text="" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="0">
+					<font>
+						<Font name="System Bold Italic" size="12.0" fx:id="x2" />
+					</font>
+				</Label>
+				<Label id="lblFirstName" fx:id="lblBookName" font="$x2"
+					prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+					GridPane.rowIndex="1" />
+				<Label id="lblFirstName" fx:id="lblAuthor" font="$x2"
+					prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+					GridPane.rowIndex="2" />
+				<Label id="lblFirstName" fx:id="lblPublisher" font="$x2"
+					prefWidth="156.0" text="" textFill="RED" GridPane.columnIndex="2"
+					GridPane.rowIndex="3" />
 			</children>
 			<columnConstraints>
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="199.0" />
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="199.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0"
+					minWidth="10.0" prefWidth="199.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0"
+					minWidth="10.0" prefWidth="199.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0"
+					minWidth="10.0" prefWidth="199.0" />
 			</columnConstraints>
 			<rowConstraints>
-				<RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="35.0" minHeight="10.0"
+					prefHeight="35.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="35.0" minHeight="10.0"
+					prefHeight="35.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="35.0" minHeight="10.0"
+					prefHeight="35.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="34.0" minHeight="10.0"
+					prefHeight="34.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="34.0" minHeight="10.0"
+					prefHeight="34.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="34.0" minHeight="10.0"
+					prefHeight="34.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 		</GridPane>
 	</children>

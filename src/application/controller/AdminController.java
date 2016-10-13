@@ -31,6 +31,7 @@ public class AdminController {
 		Stage primaryStage = new Stage();
 		dynamicTable.start(primaryStage);
 	}
+	
 	@FXML
 	public void seeAllStudent(ActionEvent event) throws Exception {
 		StudentTable stuDyanamicTable = new StudentTable();
