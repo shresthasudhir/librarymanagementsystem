@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="503.0" prefWidth="700.0"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+	fx:controller="application.controller.StudentController">
+	<children>
+		<AnchorPane layoutX="-14.0" layoutY="-25.0" prefHeight="528.0"
+			prefWidth="773.0" AnchorPane.bottomAnchor="0.0"
+			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-123.0"
+			AnchorPane.topAnchor="-25.0">
+			<children>
+				<TableView layoutX="71.0" layoutY="65.0" prefHeight="500.0"
+					prefWidth="500.0" AnchorPane.bottomAnchor="0.0"
+					AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+					AnchorPane.topAnchor="0.0">
+					<columns>
+						<TableColumn fx:id="aFirstname" prefWidth="75.0" text="First Name" />
+						<TableColumn fx:id="aLastname" prefWidth="75.0" text="Last Name" />
+						<TableColumn fx:id="aAddress" prefWidth="75.0" text="Address" />
+						<TableColumn fx:id="aDateOfBirth" prefWidth="118.0"
+							text="Date Of Birth" />
+						<TableColumn fx:id="aContactNumber" prefWidth="105.0"
+							text="Contact Number" />
+						<TableColumn fx:id="aEmail" prefWidth="105.0" text="Email" />
+						<TableColumn fx:id="aUsername" prefWidth="61.0" text="User Name" />
+						<TableColumn fx:id="aPassword" prefWidth="110.0" text="Password" />
+						<TableColumn fx:id="aStatus" prefWidth="75.0" text="Status" />
+					</columns>
+				</TableView>
+			</children>
+		</AnchorPane>
+	</children>
+</AnchorPane>
