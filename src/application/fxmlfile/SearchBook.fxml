@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="377.0" prefWidth="450.0"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="application.controller.BookController">
+	fx:controller="application.controller.BookSearchController">
 	<children>
 		<TableView fx:id="bookTable" layoutY="56.0" prefHeight="380.0"
 			prefWidth="498.0">
