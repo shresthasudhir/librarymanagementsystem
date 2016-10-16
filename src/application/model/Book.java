@@ -43,7 +43,7 @@ public class Book extends Application {
 	public void setId(int id) {
 		this.id.set(id);
 	}
-	public IntegerProperty idProperty() {
+	public IntegerProperty IdProperty() {
 		return id;
 	}
 	public String getIsbn() {
