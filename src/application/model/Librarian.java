@@ -49,7 +49,7 @@ public class Librarian extends Admin {
 			Parent root = fxmlLoader.load();
 
 			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM - Librarian Page");
-			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.setScene(new Scene(root, 490, 600));
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

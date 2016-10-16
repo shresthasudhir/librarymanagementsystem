@@ -22,8 +22,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -35,7 +38,7 @@ import javafx.stage.Stage;
 import validationsfxml.Popup;
 import validationsfxml.ValidationController;
 
-public class StudentController{
+public class StudentController {
 
 	private static int spStudentId;
 
@@ -216,10 +219,23 @@ public class StudentController{
 
 	@FXML
 	private TextField filterField;
-	public  void searchStudent(ActionEvent event) {
+
+	public void searchStudent(ActionEvent event) {
 		String afilterField = filterField.getText();
 		SearchStudent sh = new SearchStudent();
 		sh.searchStudent(afilterField);
+	}
+
+	public void searchBook(ActionEvent event) throws Exception {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/SearchBook.fxml"));
+			Stage primaryStage = new Stage();
+			primaryStage.setTitle("Search Books - Page");
+			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

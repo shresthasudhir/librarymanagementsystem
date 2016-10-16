@@ -376,4 +376,15 @@ public class LibrarianController {
 		Stage primaryStage = new Stage();
 		book.searchStudentPage(primaryStage);
 	}
+	public void searchBook(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/SearchBook.fxml"));
+			Stage primaryStage = new Stage();
+			primaryStage.setTitle("Search Books - Page");
+			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
