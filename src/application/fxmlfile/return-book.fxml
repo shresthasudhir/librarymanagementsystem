@@ -12,7 +12,7 @@
 	fx:controller="application.controller.BookController">
 	<!-- TODO Add Nodes -->
 	<children>
-		<Label layoutX="14.0" layoutY="14.0" text="Return Book">
+		<Label layoutX="14.0" layoutY="14.0" text="Return Book" styleClass="labelCSS">
 			<font>
 				<Font name="System Bold" size="16.0" fx:id="x1" />
 			</font>
@@ -21,23 +21,23 @@
 			prefHeight="200.0" prefWidth="461.0" vgap="10.0">
 			<children>
 				<Label alignment="CENTER_RIGHT" contentDisplay="LEFT" font="$x1"
-					prefHeight="50.0" prefWidth="225.0" text="Book ISBN:"
+					prefHeight="50.0" prefWidth="225.0" text="Book ISBN:" styleClass="labelCSS"
 					GridPane.columnIndex="0" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 				<NumberTextFields fx:id="txtIsbn" prefHeight="50.0"
 					prefWidth="225.0" GridPane.columnIndex="1" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#returnBook"
-					prefHeight="50.0" prefWidth="225.0" text="Return Book"
+					prefHeight="50.0" prefWidth="225.0" text="Return Book" styleClass="buttonCSS"
 					GridPane.columnIndex="1" GridPane.halignment="CENTER"
 					GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 				<Button alignment="CENTER" font="$x1" mnemonicParsing="false"
-					onAction="#backToLibrarian" prefHeight="50.0" prefWidth="90.0"
+					onAction="#backToLibrarian" prefHeight="50.0" prefWidth="90.0" styleClass="buttonLogoutCSS"
 					text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="2"
 					GridPane.valignment="CENTER"
 					style="-fx-graphic: url('../images.delete.png')" />
 				<Label alignment="CENTER_RIGHT" contentDisplay="LEFT" font="$x1"
-					prefHeight="50.0" prefWidth="225.0" text="Student Id"
+					prefHeight="50.0" prefWidth="225.0" text="Student Id" styleClass="labelCSS"
 					GridPane.rowIndex="1" />
 				<NumberTextFields fx:id="studentId" prefHeight="50.0"
 					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />

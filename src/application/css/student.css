@@ -1,0 +1,24 @@
+.root {
+     -fx-background-image: url("../images/white.jpg");
+}
+
+.buttonCSS{
+	-fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.labelCSS{
+	-fx-text-fill: #61a2b1;
+}
+
+
+.buttonLogoutCSS{
+	-fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff;
+    -fx-background-color: linear-gradient(#700f0f, #700f0f);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}

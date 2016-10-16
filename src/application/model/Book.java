@@ -6,7 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
 
+import javax.swing.text.SimpleAttributeSet;
+
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +20,73 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Book extends Application {
+	private IntegerProperty  id;
+	private StringProperty isbn;
+	private StringProperty bookName;
+	private StringProperty author;
+	private StringProperty  publisher;
+	
+	public Book() {};
+	
+	public Book(int id, String isbn, String bookName, String author, String publisher) {
+		this.id = new SimpleIntegerProperty(id);
+		this.isbn = new SimpleStringProperty(isbn);
+		this.bookName = new SimpleStringProperty(bookName);
+		this.author = new SimpleStringProperty(author);
+		this.publisher = new SimpleStringProperty(publisher);
+	}
+	
+	public int getId() {
+		return id.get();
+	}
+	
+	public void setId(int id) {
+		this.id.set(id);
+	}
+	public IntegerProperty idProperty() {
+		return id;
+	}
+	public String getIsbn() {
+		return isbn.get();
+	}
+	public void setIsbn(String isbn) {
+		this.isbn.set(isbn);
+	}
+	public StringProperty IsbnProperty() {
+		return isbn;
+	}
+	
+	public String getBookName() {
+		return bookName.get();
+	}
+	public void setBookName(String bookName) {
+		this.bookName.set(bookName);
+	}
+	public StringProperty bookNameProperty() {
+		return bookName;
+	}
+	
+	public String getAuthor() {
+		return author.get();
+	}
+	public void setAuthor(String author) {
+		this.author.set(author);
+	}
+	public StringProperty authhorProperty() {
+		return author;
+	}
+	
+	public String getPublisher() {
+		return publisher.get();
+	}
+	public void setPublisher(String publisher) {
+		this.publisher.set(publisher);
+	}
+	public StringProperty publisherProperty() {
+		return publisher;
+	}
+	
+	
 	public static void main(String[] args) {
 		Application.launch(Login.class, args);
 	}
@@ -182,10 +255,15 @@ public class Book extends Application {
 	public void deleteBookByLibrarian(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/delete-book.fxml"));
-			primaryStage.setTitle("Delete Book Page");
-			primaryStage.setScene(new Scene(root, 380, 230));
+			primaryStage.setTitle("Library Management System : Delete Book");
+			
+			Scene scene = new Scene(root, 380, 230);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/delete.png").toString()));
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
+			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -194,10 +272,16 @@ public class Book extends Application {
 	public void returnBookPage(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/return-book.fxml"));
-			primaryStage.setTitle("Retrun Book Page");
-			primaryStage.setScene(new Scene(root, 475, 300));
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/returnBook.png").toString()));
+			primaryStage.setTitle("Library Management System : Return Book");
+			
+			Scene scene = new Scene(root, 475, 300);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
+			primaryStage.show();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

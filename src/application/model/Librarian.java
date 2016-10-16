@@ -31,9 +31,9 @@ public class Librarian extends Admin {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/librarian.fxml"));
-			primaryStage.setTitle("Library Management System - Librarian");
+			primaryStage.setTitle("Library Management System : Librarian");
 			
-			Scene scene = new Scene(root, 490, 505);
+			Scene scene = new Scene(root, 490, 550);
 			primaryStage.setScene(scene);
 			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();
@@ -54,9 +54,9 @@ public class Librarian extends Admin {
 
 			Parent root = fxmlLoader.load();
 
-			primaryStage.setTitle("Library Management System - Librarian");
+			primaryStage.setTitle("Library Management System : Librarian");
 			
-			Scene scene = new Scene(root, 490, 505);
+			Scene scene = new Scene(root, 490, 550);
 			primaryStage.setScene(scene);
 			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();

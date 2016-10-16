@@ -48,17 +48,15 @@ public class Student extends Application {
 	}
 
 	public Student(String firstname, String lastname, String address, java.sql.Date dateOfBirth, Long contactNumber,
-			String email, String username, String password, int status) {
+			String email) {
 		this.firstname = new SimpleStringProperty(firstname);
 		this.lastname = new SimpleStringProperty(lastname);
 		this.address = new SimpleStringProperty(address);
 		this.dateOfBirth = new SimpleObjectProperty<>(dateOfBirth);
 		this.contactNumber = new SimpleLongProperty(contactNumber);
-		this.username = new SimpleStringProperty(username);
-		this.password = new SimpleStringProperty(password);
+		
 		this.email = new SimpleStringProperty(email);
-		this.status = new SimpleIntegerProperty(status);
-
+		
 	}
 
 	public String getFirstname() {
@@ -93,6 +91,10 @@ public class Student extends Application {
 		this.address.set(address);
 	}
 
+	public StringProperty addressProperty() {
+		return address;
+	}
+
 	public java.sql.Date getDateOfBirth() {
 		return dateOfBirth.get();
 	}
@@ -101,12 +103,20 @@ public class Student extends Application {
 		this.dateOfBirth.set(dateOfBirth);
 	}
 
+	public ObjectProperty<java.sql.Date> dataOfBirthProperty() {
+		return dateOfBirth;
+	}
+
 	public long getContactNumber() {
 		return contactNumber.get();
 	}
 
 	public void setContactNumber(long aContactNumber) {
 		this.contactNumber.set(aContactNumber);
+	}
+
+	public LongProperty contactNumberProperty() {
+		return contactNumber;
 	}
 
 	public String getUsername() {
@@ -133,6 +143,10 @@ public class Student extends Application {
 		this.email.set(email);
 	}
 
+	public StringProperty emailProperty() {
+		return email;
+	}
+
 	public int getStatus() {
 		return status.get();
 	}
@@ -149,9 +163,15 @@ public class Student extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/student.fxml"));
-			primaryStage.setTitle("Student Page");
-			primaryStage.setScene(new Scene(root, 500, 450));
+			primaryStage.setTitle("Library Management System : Student");
+			
+			Scene scene = new Scene(root, 500, 450);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/student.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -167,9 +187,14 @@ public class Student extends Application {
 
 			Parent root = fxmlLoader.load();
 
-			primaryStage.setTitle("Student Page");
-			primaryStage.setScene(new Scene(root, 500, 450));
+			primaryStage.setTitle("Library Management System : Student");
+			Scene scene = new Scene(root, 500, 450);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/student.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -178,9 +203,12 @@ public class Student extends Application {
 	public void addStudent(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/add-student.fxml"));
-			primaryStage.setTitle("STUDENT ADD FORM");
-			primaryStage.setScene(new Scene(root, 570, 550));
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/addStudent.png").toString()));
+			primaryStage.setTitle("Library Management System : Add Student");
+			Scene scene = new Scene(root, 570, 550);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
