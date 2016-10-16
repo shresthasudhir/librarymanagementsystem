@@ -31,8 +31,14 @@ public class Librarian extends Admin {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/librarian.fxml"));
-			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
-			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.setTitle("Library Management System - Librarian");
+			
+			Scene scene = new Scene(root, 490, 505);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
+			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,8 +54,14 @@ public class Librarian extends Admin {
 
 			Parent root = fxmlLoader.load();
 
-			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM - Librarian Page");
-			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.setTitle("Library Management System - Librarian");
+			
+			Scene scene = new Scene(root, 490, 505);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
+			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,9 +71,13 @@ public class Librarian extends Admin {
 	public void addLibrarian(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/add-librarian.fxml"));
-			primaryStage.setTitle("LIBRARIAN ADD FROM");
-			primaryStage.setScene(new Scene(root, 600, 500));
+			primaryStage.setTitle("Library Management System : Add Librarian");
+			Scene scene = new Scene(root, 600, 500);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/admin.css").toExternalForm());
 			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -70,10 +86,13 @@ public class Librarian extends Admin {
 	public void deleteLibrarian(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/delete-librarian.fxml"));
-			primaryStage.setTitle("DELETE LIBRARIAN");
-			primaryStage.setScene(new Scene(root, 500, 230));
+			primaryStage.setTitle("Library Management System : Delete Librarian");
+			Scene scene = new Scene(root, 500, 230);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/admin.css").toExternalForm());
 			primaryStage.show();
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/delete.png").toString()));
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

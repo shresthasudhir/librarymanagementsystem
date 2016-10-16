@@ -39,9 +39,6 @@ public class AdminController {
 		stuDyanamicTable.start(primaryStage);
 	}
 
-	@FXML
-	public void seeFine(ActionEvent event) {
-	}
 
 	@FXML
 	public void logout(ActionEvent event) {

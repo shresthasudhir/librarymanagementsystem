@@ -17,7 +17,7 @@
 		<GridPane hgap="30.0" layoutX="15.0" layoutY="58.0" prefHeight="190.0" prefWidth="474.0" vgap="30.0">
 			<children>
 				<Button font="$x1" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" text="Search Book" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-				<Button font="$x1" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" text="See Fine" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+				<Button font="$x1" mnemonicParsing="false" onAction="#seeFinePage" prefHeight="50.0" prefWidth="225.0" text="See Fine" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#onlineBookPage" prefHeight="50.0" prefWidth="225.0" text="Show Online Book" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#seeBookDueDate" prefHeight="50.0" prefWidth="225.0" text="See Book Due Date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#logout" prefHeight="50.0" prefWidth="225.0" text="Logout" GridPane.columnIndex="1" GridPane.rowIndex="2" />

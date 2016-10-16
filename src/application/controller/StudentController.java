@@ -16,7 +16,7 @@ import application.views.OnlineBookTable;
 import application.views.StudentBookDueDate;
 
 import application.views.SearchStudent;
-
+import application.views.SeeFineTable;
 import application.views.StudentTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -205,6 +205,14 @@ public class StudentController{
 				System.out.println(e);
 			}
 		}
+	}
+	
+	@FXML
+	public void seeFinePage(ActionEvent event) throws Exception{
+		int studentId = StudentController.getStudentId();
+		SeeFineTable dynamicTable = new SeeFineTable();
+		Stage primaryStage = new Stage();
+		dynamicTable.startSeeFine(primaryStage,studentId);
 	}
 
 	@FXML

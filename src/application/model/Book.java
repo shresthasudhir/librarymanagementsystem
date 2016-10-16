@@ -22,9 +22,15 @@ public class Book extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/add-book.fxml"));
-			primaryStage.setTitle("Add Book Page");
-			primaryStage.setScene(new Scene(root, 475, 350));
+			primaryStage.setTitle("Library Management System : Add Book");	
+			Scene scene = new Scene(root, 475, 350);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
+			primaryStage.show();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

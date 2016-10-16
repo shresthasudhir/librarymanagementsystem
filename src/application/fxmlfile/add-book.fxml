@@ -12,7 +12,7 @@
 	fx:controller="application.controller.LibrarianController">
 	<!-- TODO Add Nodes -->
 	<children>
-		<Label layoutX="14.0" layoutY="14.0" text="Add Book">
+		<Label layoutX="14.0" layoutY="14.0" text="Add Book" styleClass="labelCSS">
 			<font>
 				<Font name="System Bold" size="16.0" fx:id="x1" />
 			</font>
@@ -21,32 +21,35 @@
 			prefHeight="287.0" prefWidth="446.0" vgap="10.0">
 			<children>
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
-					prefWidth="225.0" text="ISBN_No:" textAlignment="LEFT" textOverrun="CLIP"
+					prefWidth="225.0" text="ISBN_No:" styleClass="labelCSS" textAlignment="LEFT" textOverrun="CLIP"
 					GridPane.columnIndex="0" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 				<NumberTextFields fx:id="txtISBN" prefHeight="50.0"
 					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
-					prefWidth="225.0" text="Name:" textAlignment="LEFT" textOverrun="CLIP"
+					prefWidth="225.0" text="Name:" styleClass="labelCSS" textAlignment="LEFT" textOverrun="CLIP"
 					GridPane.columnIndex="0" GridPane.rowIndex="1" />
-				<TextField fx:id="txtBookName" prefHeight="50.0" promptText="Book Name"
-					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="txtBookName" prefHeight="50.0"
+					promptText="Book Name" prefWidth="225.0" GridPane.columnIndex="1"
+					GridPane.rowIndex="1" />
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
-					prefWidth="225.0" text="Author:" textAlignment="LEFT" textOverrun="CLIP"
-					GridPane.columnIndex="0" GridPane.rowIndex="2"  />
-				<TextField fx:id="txtAuthorName" prefHeight="50.0" promptText="Author Name"
-					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+					prefWidth="225.0" text="Author:" styleClass="labelCSS" textAlignment="LEFT" textOverrun="CLIP"
+					GridPane.columnIndex="0" GridPane.rowIndex="2" />
+				<TextField fx:id="txtAuthorName" prefHeight="50.0"
+					promptText="Author Name" prefWidth="225.0" GridPane.columnIndex="1"
+					GridPane.rowIndex="2" />
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0"
-					prefWidth="225.0" text="Pulisher:" textAlignment="LEFT"
+					prefWidth="225.0" text="Pulisher:" styleClass="labelCSS" textAlignment="LEFT"
 					textOverrun="CLIP" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-				<TextField fx:id="txtPublisher" prefHeight="50.0" promptText="Publisher"
-					prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<TextField fx:id="txtPublisher" prefHeight="50.0"
+					promptText="Publisher" prefWidth="225.0" GridPane.columnIndex="1"
+					GridPane.rowIndex="3" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#back"
-					prefHeight="34.0" prefWidth="100.0" text="Back"
+					prefHeight="34.0" prefWidth="100.0" text="Back" styleClass="buttonLogoutCSS"
 					GridPane.columnIndex="0" GridPane.halignment="RIGHT"
 					GridPane.rowIndex="5" GridPane.valignment="CENTER" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#addBook"
-					prefHeight="50.0" prefWidth="225.0" text="Add Book"
+					prefHeight="50.0" prefWidth="225.0" text="Add Book" styleClass="buttonCSS"
 					GridPane.columnIndex="1" GridPane.rowIndex="5" />
 				<Label id="lblFirstName" fx:id="lblISBN" prefWidth="156.0"
 					text="" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="0">

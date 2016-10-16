@@ -96,9 +96,13 @@ public class Admin extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/admin.fxml"));
-			primaryStage.setTitle("Admin Page");
-			primaryStage.setScene(new Scene(root, 475, 400));
+			primaryStage.setTitle("Library Management System : Admin");
+			Scene scene = new Scene(root, 580, 400);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/admin.css").toExternalForm());
 			primaryStage.show();
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

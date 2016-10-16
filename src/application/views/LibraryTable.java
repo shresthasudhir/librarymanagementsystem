@@ -77,7 +77,7 @@ public class LibraryTable extends Application {
 		tableview = new TableView();
 		buildData();
 		Scene scene = new Scene(tableview,710, 450);
-		stage.setTitle("Librarian view page");
+		stage.setTitle("Library Management System : See All Librarian");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

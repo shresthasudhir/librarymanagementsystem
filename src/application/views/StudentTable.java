@@ -71,7 +71,7 @@ public class StudentTable extends Application {
 		tableview = new TableView();
 		buildData();
 		Scene scene = new Scene(tableview,730, 450);
-		stage.setTitle("Student view page");
+		stage.setTitle("Library Management System : See All Student");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

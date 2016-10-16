@@ -1,12 +1,9 @@
 package application.views;
 
-import java.awt.List;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -19,12 +16,11 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-public class StudentBookDueDate extends Application {
+public class SeeFineTable extends Application {
 
 	private ObservableList<ObservableList> data;
 	private TableView tableview;
@@ -33,25 +29,24 @@ public class StudentBookDueDate extends Application {
 		launch(args);
 	}
 
-	public void buildData(ArrayList<String> bookName, ArrayList<java.sql.Date> returnDate) {
-		
+	public void buildData(ArrayList<String> bookName, ArrayList<java.sql.Date> takenDateArray,
+			ArrayList<java.sql.Date> returnDate, ArrayList<Integer> studentFineArray, int totalFine) {
 		data = FXCollections.observableArrayList();
 
 		try {
 
 			TableColumn no = new TableColumn("No.");
-			no.setMinWidth(100);
-			no.setCellValueFactory(
-					new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+			no.setMinWidth(20);
+			no.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
 
-						public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+				public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
 
-							return new SimpleStringProperty(param.getValue().get(0).toString());
+					return new SimpleStringProperty(param.getValue().get(0).toString());
 
-						}
+				}
 
-					});
-			
+			});
+
 			TableColumn firstCol = new TableColumn("Book Name");
 			firstCol.setMinWidth(150);
 			firstCol.setCellValueFactory(
@@ -65,8 +60,8 @@ public class StudentBookDueDate extends Application {
 
 					});
 			
-			
-			TableColumn secondCol = new TableColumn("Return Date");
+
+			TableColumn secondCol = new TableColumn("Taken Date");
 			secondCol.setMinWidth(100);
 			secondCol.setCellValueFactory(
 					new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
@@ -79,22 +74,59 @@ public class StudentBookDueDate extends Application {
 
 					});
 
+			TableColumn thirdCol = new TableColumn("Return Date");
+			thirdCol.setMinWidth(100);
+			thirdCol.setCellValueFactory(
+					new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+
+						public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+
+							return new SimpleStringProperty(param.getValue().get(3).toString());
+
+						}
+
+					});
 			
-			tableview.getColumns().addAll(no,firstCol, secondCol);
-			//tableview.getColumns().addAll(no);
-			
+			TableColumn fourthCol = new TableColumn("Fine Amount");
+			fourthCol.setMinWidth(100);
+			fourthCol.setCellValueFactory(
+					new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+
+						public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+
+							return new SimpleStringProperty(param.getValue().get(4).toString());
+
+						}
+
+					});
+
+			tableview.getColumns().addAll(no, firstCol, secondCol, thirdCol, fourthCol);
+			// tableview.getColumns().addAll(no);
+
 			for (int i = 0; i < bookName.size(); i++) {
-				
+
 				ObservableList<String> rowData = FXCollections.observableArrayList();
-			
-				rowData.add(Integer.toString(i+1));
+
+				rowData.add(Integer.toString(i + 1));
 				rowData.add(bookName.get(i));
+				rowData.add(takenDateArray.get(i).toString());
 				rowData.add(returnDate.get(i).toString());
-				//System.out.println(Integer.toString(i+1)+ " " + bookName.get(i) + " " + returnDate.get(i));
-				
+				rowData.add("$"+Integer.toString(studentFineArray.get(i)));
+				// System.out.println(Integer.toString(i+1)+ " " +
+				// bookName.get(i) + " " + returnDate.get(i));
+
 				data.add(rowData);
 			}
-			
+
+			ObservableList<String> lastRow = FXCollections.observableArrayList();
+			lastRow.add("");
+			lastRow.add("");
+			lastRow.add("");
+			lastRow.add("TotalFine");
+			lastRow.add("$"+Integer.toString(totalFine));
+
+			data.add(lastRow);
+
 			tableview.setItems(data);
 
 		} catch (Exception e) {
@@ -155,17 +187,24 @@ public class StudentBookDueDate extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		//tableview = new TableView();
+		tableview = new TableView();
 		// buildData();
-		Scene scene = new Scene(tableview, 730, 450);
-		stage.setTitle("Student view page");
+		Scene scene = new Scene(tableview, 710, 450);
+		stage.setTitle("See Fine Page");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);
 		stage.setFullScreen(false);
+
 	}
 
-	public void startBookDueDate(Stage stage, int studentId) throws Exception {
+	public int daysBetween(java.sql.Date d1, java.sql.Date d2) {
+		return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
+	}
+
+	/* Here is the startSeeFine */
+
+	public void startSeeFine(Stage stage, int studentId) throws Exception {
 		tableview = new TableView();
 
 		ArrayList<Integer> bookIdArray = getIssuedBookIds(studentId);
@@ -176,7 +215,7 @@ public class StudentBookDueDate extends Application {
 		for (int i = 0; i < bookIdArray.size(); i++) {
 			String name = getIssuedBookName(bookIdArray.get(i));
 			bookName.add(name);
-			//System.out.println(name);
+			// System.out.println(name);
 		}
 
 		ArrayList<java.sql.Date> returnDateArray = new ArrayList<java.sql.Date>();
@@ -192,12 +231,32 @@ public class StudentBookDueDate extends Application {
 			returnDateArray.add(returnDate);
 		}
 
-		buildData(bookName, returnDateArray);
-		 Scene scene = new Scene(tableview, 350, 250);
-		 stage.setTitle("Student Book Return Page");
-		 stage.setScene(scene);
-		 stage.show();
-		 stage.setResizable(false);
-		 stage.setFullScreen(false);
+		ArrayList<Integer> studentFineArray = new ArrayList<Integer>();
+
+		int totalFine = 0;
+
+		for (int i = 0; i < bookIdArray.size(); i++) {
+
+			java.sql.Date takenDate = takenDateArray.get(i);
+			java.sql.Date todaysDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
+			int dayPassed = daysBetween(takenDate, todaysDate);
+
+			int fine = 0;
+			if (dayPassed > 15) {
+				fine = dayPassed - 15;
+			}
+			totalFine += fine;
+			studentFineArray.add(fine);
+		}
+
+		buildData(bookName, takenDateArray, returnDateArray, studentFineArray, totalFine);
+		Scene scene = new Scene(tableview, 500, 250);
+		stage.setTitle("Student Book Fine");
+		stage.setScene(scene);
+		stage.show();
+		stage.setResizable(false);
+		stage.setFullScreen(false);
+
 	}
 }

@@ -16,8 +16,10 @@ public class Login extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/login.fxml"));
-			primaryStage.setTitle("LIBRARY MANAGMENT SYSTEM");
-			primaryStage.setScene(new Scene(root, 380, 275));
+			primaryStage.setTitle("Library Management System");
+			Scene scene = new Scene(root, 600, 275);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/login.css").toExternalForm());
 			primaryStage.show();
 			primaryStage.setResizable(false);
 			primaryStage.setFullScreen(false);
