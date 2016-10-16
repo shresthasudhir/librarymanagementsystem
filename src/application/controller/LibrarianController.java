@@ -371,10 +371,15 @@ public class LibrarianController {
 		book.returnBookPage(primaryStage);
 	}
 	public void searchStudent(ActionEvent event) {
-		((Node) event.getSource()).getScene().getWindow().hide();
-		Student book = new Student();
-		Stage primaryStage = new Stage();
-		book.searchStudentPage(primaryStage);
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/SearchStudent.fxml"));
+			Stage primaryStage = new Stage();
+			primaryStage.setTitle("Search Student - Page");
+			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void searchBook(ActionEvent event) {
 		try {

@@ -48,17 +48,15 @@ public class Student extends Application {
 	}
 
 	public Student(String firstname, String lastname, String address, java.sql.Date dateOfBirth, Long contactNumber,
-			String email, String username, String password, int status) {
+			String email) {
 		this.firstname = new SimpleStringProperty(firstname);
 		this.lastname = new SimpleStringProperty(lastname);
 		this.address = new SimpleStringProperty(address);
 		this.dateOfBirth = new SimpleObjectProperty<>(dateOfBirth);
 		this.contactNumber = new SimpleLongProperty(contactNumber);
-		this.username = new SimpleStringProperty(username);
-		this.password = new SimpleStringProperty(password);
+		
 		this.email = new SimpleStringProperty(email);
-		this.status = new SimpleIntegerProperty(status);
-
+		
 	}
 
 	public String getFirstname() {
@@ -93,6 +91,10 @@ public class Student extends Application {
 		this.address.set(address);
 	}
 
+	public StringProperty addressProperty() {
+		return address;
+	}
+
 	public java.sql.Date getDateOfBirth() {
 		return dateOfBirth.get();
 	}
@@ -101,12 +103,20 @@ public class Student extends Application {
 		this.dateOfBirth.set(dateOfBirth);
 	}
 
+	public ObjectProperty<java.sql.Date> dataOfBirthProperty() {
+		return dateOfBirth;
+	}
+
 	public long getContactNumber() {
 		return contactNumber.get();
 	}
 
 	public void setContactNumber(long aContactNumber) {
 		this.contactNumber.set(aContactNumber);
+	}
+
+	public LongProperty contactNumberProperty() {
+		return contactNumber;
 	}
 
 	public String getUsername() {
@@ -131,6 +141,10 @@ public class Student extends Application {
 
 	public void setEmail(String email) {
 		this.email.set(email);
+	}
+
+	public StringProperty emailProperty() {
+		return email;
 	}
 
 	public int getStatus() {

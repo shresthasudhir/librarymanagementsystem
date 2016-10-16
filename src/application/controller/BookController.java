@@ -145,14 +145,14 @@ public class BookController implements Initializable {
 				if(newValue == null || newValue.isEmpty()) {
 					return true;
 				}
-				String lowerCaseFilert = newValue.toLowerCase();
-				if (book.getBookName().toLowerCase().indexOf(lowerCaseFilert) != -1) {
+				String lowerCaseFilter = newValue.toLowerCase();
+				if (book.getBookName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
-				} else if (book.getAuthor().toLowerCase().indexOf(lowerCaseFilert) != -1) {
+				} else if (book.getAuthor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
-				} else if (book.getIsbn().toLowerCase().indexOf(lowerCaseFilert) != -1) {
+				} else if (book.getIsbn().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
-				} else if (book.getPublisher().toLowerCase().indexOf(lowerCaseFilert) != -1) {
+				} else if (book.getPublisher().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
 				}
 				return false;

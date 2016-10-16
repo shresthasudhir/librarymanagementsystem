@@ -8,7 +8,7 @@ public class Database {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management?zeroDateTimeBehavior=convertToNull", "root", "");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
