@@ -12,7 +12,8 @@
 	fx:controller="application.controller.BookController">
 	<!-- TODO Add Nodes -->
 	<children>
-		<Label layoutX="14.0" layoutY="14.0" text="Delete Book" styleClass="labelCSS">
+		<Label layoutX="14.0" layoutY="14.0" text="Delete Book"
+			styleClass="labelCSS">
 			<font>
 				<Font name="System Bold" size="16.0" fx:id="x1" />
 			</font>
@@ -24,8 +25,8 @@
 					prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Book Id:"
 					GridPane.columnIndex="0" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-				<NumberTextFields  fx:id="bookId" prefHeight="50.0" prefWidth="225.0"
-					GridPane.columnIndex="1" GridPane.halignment="CENTER"
+				<NumberTextFields fx:id="bookId" prefHeight="50.0"
+					prefWidth="225.0" GridPane.columnIndex="1" GridPane.halignment="CENTER"
 					GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#deleteBookWithId"
 					prefHeight="50.0" prefWidth="225.0" styleClass="buttonCSS" text="Delete Book"
@@ -33,8 +34,9 @@
 					GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 				<Button alignment="CENTER" contentDisplay="LEFT" font="$x1"
 					mnemonicParsing="false" onAction="#backToLibrarian" prefHeight="50.0"
-					prefWidth="90.0" styleClass="buttonLogoutCSS" text="Back" GridPane.halignment="RIGHT"
-					GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+					prefWidth="90.0" styleClass="buttonLogoutCSS" text="Back"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="1"
+					GridPane.valignment="CENTER" />
 			</children>
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"

@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -252,11 +253,12 @@ public class SeeFineTable extends Application {
 
 		buildData(bookName, takenDateArray, returnDateArray, studentFineArray, totalFine);
 		Scene scene = new Scene(tableview, 500, 250);
-		stage.setTitle("Student Book Fine");
+		stage.setTitle("Library Management System : Student Fine");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);
 		stage.setFullScreen(false);
+		stage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 
 	}
 }

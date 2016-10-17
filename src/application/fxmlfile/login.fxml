@@ -30,7 +30,7 @@
 				<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 				<PasswordField fx:id="passwordField" prefHeight="40.0" prefWidth="187.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<Button font="$x1" mnemonicParsing="false" onAction="#signUpButton" prefHeight="40.0" prefWidth="186.0" styleClass="buttonCSS" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2">
-					<!-- <graphic>
+					 <!-- <graphic>
 						<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
 							<image>
 								<Image url="@../images/login.png" />

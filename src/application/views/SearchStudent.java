@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -78,8 +79,9 @@ public class SearchStudent extends Application {
 		buildData(searchKeyword);
 		Stage stage = new Stage();
 		Scene stage1 = new Scene(tableview);
-		stage.setTitle("Student Search page");
+		stage.setTitle("Library Management System : Search Student");
 		stage.setScene(stage1);
 		stage.show();
+		stage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 	}
 }

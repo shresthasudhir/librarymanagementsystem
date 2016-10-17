@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -194,10 +195,11 @@ public class StudentBookDueDate extends Application {
 
 		buildData(bookName, returnDateArray);
 		 Scene scene = new Scene(tableview, 350, 250);
-		 stage.setTitle("Student Book Return Page");
+		 stage.setTitle("Library Management System : Book Due Date");
 		 stage.setScene(scene);
 		 stage.show();
 		 stage.setResizable(false);
 		 stage.setFullScreen(false);
+		 stage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 	}
 }

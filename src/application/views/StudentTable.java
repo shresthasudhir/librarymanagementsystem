@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -76,5 +77,6 @@ public class StudentTable extends Application {
 		stage.show();
 		stage.setResizable(false);
 		stage.setFullScreen(false);
+		stage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 	}
 }

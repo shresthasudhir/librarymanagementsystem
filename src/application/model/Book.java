@@ -133,10 +133,14 @@ public class Book extends Application {
 	public void showIssueBookPage(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/issue-book.fxml"));
-			primaryStage.setTitle("Issue Book Page");
-			primaryStage.setScene(new Scene(root, 475, 250));
+			primaryStage.setTitle("Library Management System : Issue Book");
+			Scene scene = new Scene(root, 475, 250);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/issueBook.png").toString()));
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
+			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -71,11 +72,12 @@ public class OnlineBookTable extends Application {
 		tableview = new TableView();
 		buildData();
 		Scene scene = new Scene(tableview,710, 450);
-		stage.setTitle("Online Book Information");
+		stage.setTitle("Library Management System : Online Book");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);
 		stage.setFullScreen(false);
+		stage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 
 	}
 

@@ -12,31 +12,31 @@
 		<AnchorPane layoutX="1.0" layoutY="0.0" prefHeight="544.0" prefWidth="417.0">
 			<!-- TODO Add Nodes -->
 			<children>
-				<Label alignment="CENTER" contentDisplay="LEFT" layoutX="12.0" layoutY="8.0" prefHeight="35.0" prefWidth="123.0" text="Librarian Form">
+				<Label alignment="CENTER" contentDisplay="LEFT" layoutX="12.0" layoutY="8.0" prefHeight="35.0" prefWidth="123.0" styleClass="labelCSS" text="Student Form">
 					<font>
 						<Font name="System Bold" size="16.0" fx:id="x1" />
 					</font>
 				</Label>
 				<GridPane hgap="10.0" layoutX="14.0" layoutY="43.0" prefHeight="434.0" prefWidth="582.0" vgap="10.0">
 					<children>
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="First Name:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="First Name:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 						<TextField fx:id="firstname" prefHeight="50.0" prefWidth="225.0" promptText="First Name" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 						<TextField fx:id="lastname" prefHeight="50.0" prefWidth="225.0" promptText="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 						<TextField fx:id="address" prefHeight="50.0" prefWidth="225.0" promptText="Address" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Date Of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Date Of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 						<DatePicker fx:id="dateOfBirth" prefHeight="50.0" prefWidth="225.0" promptText="Date Of Birth" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Contact No:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Contact No:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 						<NumberTextFields fx:id="contactNumber" prefHeight="50.0" prefWidth="225.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 						<TextField fx:id="email" prefHeight="50.0" prefWidth="225.0" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="User Name:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="User Name:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
 						<TextField fx:id="username" prefHeight="50.0" prefWidth="225.0" promptText="User Name" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+						<Label alignment="CENTER_RIGHT" font="$x1" prefHeight="50.0" prefWidth="225.0" styleClass="labelCSS" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 						<PasswordField fx:id="password" prefHeight="50.0" prefWidth="225.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-						<Button font="$x1" mnemonicParsing="false" onAction="#backToLibrarian" prefHeight="50.0" prefWidth="225.0" text="Back" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-						<Button font="$x1" mnemonicParsing="false" onAction="#addStudent" prefHeight="50.0" prefWidth="225.0" text="Add Student" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+						<Button font="$x1" mnemonicParsing="false" onAction="#backToLibrarian" prefHeight="50.0" prefWidth="225.0" styleClass="buttonLogoutCSS" text="Back" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+						<Button font="$x1" mnemonicParsing="false" onAction="#addStudent" prefHeight="50.0" prefWidth="225.0" styleClass="buttonCSS" text="Add Student" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 						<Label id="lblfirstname" fx:id="lblFirstName" text="" textFill="RED" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
 							<font>
 								<Font name="System Bold Italic" size="12.0" fx:id="x2" />

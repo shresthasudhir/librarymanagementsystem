@@ -55,17 +55,18 @@ public class BookController{
 		if (bokid.isEmpty()) {
 			Popup.emptyBookDeleteNotification();
 		} else {
-			boolean bokIdLength = ValidationController.validateBookId(bokid);
-			if (bokIdLength) {
+		//	boolean bokIdLength = ValidationController.validateBookId(bokid);
+		//	if (bokIdLength) {
 				int aBookId = Integer.parseInt(bookId.getText().toString());
 				try {
 					int delete = Book.deleteBookById(aBookId);
 					if (delete > 0) {
 						Stage primaryStage = new Stage();
+						
 						((Node) event.getSource()).getScene().getWindow().hide();
-						Popup.getBookDeleteNotification();
 						Librarian librarian = new Librarian();
 						librarian.start(primaryStage);
+						Popup.getBookDeleteNotification();
 						// System.out.println("Book ID " + aBookId +
 					} else {
 						Popup.wrongBookDeleteNotification();
@@ -74,7 +75,7 @@ public class BookController{
 					System.out.println(e);
 				}
 			}
-		}
+		//}
 	}
 
 	public void returnBook(ActionEvent event) {
@@ -87,10 +88,12 @@ public class BookController{
 				int delete = Book.returnBookByStudentId(aBookIsbn, aStudentId);
 				if (delete > 0) {
 					Stage primaryStage = new Stage();
+					
 					((Node) event.getSource()).getScene().getWindow().hide();
-					Popup.getBookReturnNotification();
+					
 					Librarian librarian = new Librarian();
 					librarian.start(primaryStage);
+					Popup.getBookReturnNotification();
 					// System.out.println("Book ISBN " + aBookIsbn
 				} else {
 					Popup.wrongissuseBookDeleteNotification();

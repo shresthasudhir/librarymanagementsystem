@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -144,27 +145,29 @@ public class LibrarianController {
 		boolean bpassword = ValidationController.isTextFieldEmpty(password, lblPassword, "Password is required.");
 		// boolean b = this.isTextFieldEmpty(password,
 		// lblPassword,"Password is required.");
-		
+
 		boolean vemail = true;
 		boolean vcontactNum = true;
 		if (bemail) {
 			vemail = ValidationController.validateEmail(email.getText());
+			email.requestFocus();
 		}
-		
+
 		if (bContanctNo) {
 			String text = contactNumber.getText();
-			//int num = Integer.parseInt(text);
+			// int num = Integer.parseInt(text);
 			vcontactNum = ValidationController.validateContactNumber(text);
 
 		}
-		
-		boolean validUsername = false;
-		if(buername){
-		validUsername = ValidationController.checkUsernameExist(username.getText());
-		}
-		
 
-		if (bfirstName && blastName && baddress && bdateOfbirth && bContanctNo && bemail && buername && bpassword && validUsername) {
+		boolean validUsername = false;
+		if (buername) {
+			validUsername = ValidationController.checkUsernameExist(username.getText());
+		
+		}
+
+		if (bfirstName && blastName && baddress && bdateOfbirth && buername && bpassword
+				&& vemail && vcontactNum && validUsername) {
 
 			String afirstName = firstname.getText();
 			String aLastName = lastname.getText();
@@ -192,11 +195,13 @@ public class LibrarianController {
 				int saveLibraryData = newLibrarian.savaDatatoDataBase();
 				if (saveLibraryData > 0) {
 					Stage primaryStage = new Stage();
+					
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Admin admin = new Admin();
 					admin.start(primaryStage);
-					// System.out.println("Successfully added librarian");
 					Popup.getLibrarySavedNotification();
+					// System.out.println("Successfully added librarian");
+					
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -227,27 +232,26 @@ public class LibrarianController {
 	@FXML
 	public void deleteLibrarian(ActionEvent event) {
 		String libid = librarianId.getText();
-		boolean bLibId = ValidationController.isTextFieldEmpty(librarianId,
-				lblStudentId, "Library Id is required.");
+		boolean bLibId = ValidationController.isTextFieldEmpty(librarianId, lblStudentId, "Library Id is required.");
 		if (bLibId) {
-			int aLibrarianId = Integer.parseInt(librarianId.getText()
-					.toString());
-		try {
-			int delete = Librarian.deleteLibrarian(aLibrarianId);
-			if (delete > 0) {
-				Stage primaryStage = new Stage();
-				((Node) event.getSource()).getScene().getWindow().hide();
+			int aLibrarianId = Integer.parseInt(librarianId.getText().toString());
+			try {
+				int delete = Librarian.deleteLibrarian(aLibrarianId);
+				if (delete > 0) {
+					Stage primaryStage = new Stage();
+					
+					
+					((Node) event.getSource()).getScene().getWindow().hide();
+					
+					Admin admin = new Admin();
+					admin.start(primaryStage);
 					Popup.getLibrarianDeleteNotification();
-				Admin admin = new Admin();
-				admin.start(primaryStage);
-//					System.out.println("Librarian " + aLibrarianId
-			}
-				else
-				{
+					// System.out.println("Librarian " + aLibrarianId
+				} else {
 					Popup.wrongLibrarianDeleteNotification();
 				}
-		} catch (Exception e) {
-			System.out.println(e);
+			} catch (Exception e) {
+				System.out.println(e);
 			}
 		}
 	}
@@ -278,16 +282,12 @@ public class LibrarianController {
 
 	public void addBook(ActionEvent event) throws Exception {
 
-		boolean bISBN = ValidationController.isTextFieldEmpty(txtISBN, lblISBN,
-				"ISBN is required.");
-		boolean bName = ValidationController.isTextFieldEmpty(txtBookName,
-				lblBookName, "Book name is required.");
-		boolean bAuthor = ValidationController.isTextFieldEmpty(txtAuthorName,
-				lblAuthor, "Author is required.");
-		boolean bPublisher = ValidationController.isTextFieldEmpty(
-				txtPublisher, lblPublisher, "Publisher is required.");
-		boolean vISBN=true;
-		
+		boolean bISBN = ValidationController.isTextFieldEmpty(txtISBN, lblISBN, "ISBN is required.");
+		boolean bName = ValidationController.isTextFieldEmpty(txtBookName, lblBookName, "Book name is required.");
+		boolean bAuthor = ValidationController.isTextFieldEmpty(txtAuthorName, lblAuthor, "Author is required.");
+		boolean bPublisher = ValidationController.isTextFieldEmpty(txtPublisher, lblPublisher,
+				"Publisher is required.");
+		boolean vISBN = true;
 
 		if (bISBN && bName && bAuthor && bPublisher) {
 
@@ -296,15 +296,16 @@ public class LibrarianController {
 			String authorName = txtAuthorName.getText();
 			String publisher = txtPublisher.getText();
 			try {
-				int saveBookData = Book.saveBook(isbn, bookName, authorName,
-						publisher);
+				int saveBookData = Book.saveBook(isbn, bookName, authorName, publisher);
 				if (saveBookData > 0) {
 					Stage primaryStage = new Stage();
+					
 					((Node) event.getSource()).getScene().getWindow().hide();
 					Librarian librarian = new Librarian();
 					librarian.start(primaryStage);
-					//System.out.println("Successfully book added.");
 					Popup.getBookSavedNotification();
+					// System.out.println("Successfully book added.");
+					
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -315,30 +316,29 @@ public class LibrarianController {
 	}
 
 	public void issueBook(ActionEvent event) throws Exception {
-		boolean bISBN = ValidationController.isTextFieldEmpty(txtIssueBookISBN, lblISBN,
-				"ISBN is required.");
-		boolean bStdId = ValidationController.isTextFieldEmpty(txtIssueStudentId,
-				lblStudentId, "Student Id is required.");
+		boolean bISBN = ValidationController.isTextFieldEmpty(txtIssueBookISBN, lblISBN, "ISBN is required.");
+		boolean bStdId = ValidationController.isTextFieldEmpty(txtIssueStudentId, lblStudentId,
+				"Student Id is required.");
 		if (bISBN && bStdId) {
-		int isbn = Integer.parseInt(txtIssueBookISBN.getText().toString());
-		int studentId = Integer.parseInt(txtIssueStudentId.getText().toString());
+			int isbn = Integer.parseInt(txtIssueBookISBN.getText().toString());
+			int studentId = Integer.parseInt(txtIssueStudentId.getText().toString());
 
-		try {
-			int saveIssueBookData = Book.saveIssueBook(isbn, studentId);
-			if (saveIssueBookData > 0) {
-				Stage primaryStage = new Stage();
-				((Node) event.getSource()).getScene().getWindow().hide();
-					Popup.getBookSavedNotification();
-				Librarian librarian = new Librarian();
-				librarian.start(primaryStage);
-					//System.out.println("Successfully book issued.");
-			}
-				else
-				{
+			try {
+				int saveIssueBookData = Book.saveIssueBook(isbn, studentId);
+				if (saveIssueBookData > 0) {
+					Stage primaryStage = new Stage();
+					
+					((Node) event.getSource()).getScene().getWindow().hide();
+					
+					Librarian librarian = new Librarian();
+					librarian.start(primaryStage);
+					Popup.getBookIssuedNotification();
+					// System.out.println("Successfully book issued.");
+				} else {
 					Popup.wrongissuseBookDeleteNotification();
 				}
-		} catch (Exception e) {
-			System.out.println(e);
+			} catch (Exception e) {
+				System.out.println(e);
 			}
 		}
 	}
@@ -358,36 +358,52 @@ public class LibrarianController {
 		Stage primaryStage = new Stage();
 		book.deleteBookByLibrarian(primaryStage);
 	}
+
 	public void deleteStudent(ActionEvent event) {
 		((Node) event.getSource()).getScene().getWindow().hide();
 		Student student = new Student();
 		Stage primaryStage = new Stage();
 		student.deleteStudentById(primaryStage);
 	}
+
 	public void returnBook(ActionEvent event) {
 		((Node) event.getSource()).getScene().getWindow().hide();
 		Book book = new Book();
 		Stage primaryStage = new Stage();
 		book.returnBookPage(primaryStage);
 	}
+
 	public void searchStudent(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/SearchStudent.fxml"));
 			Stage primaryStage = new Stage();
-			primaryStage.setTitle("Search Student - Page");
-			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.setTitle("Library Management System : Search Student");
+
+			Scene scene = new Scene(root, 490, 500);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	public void searchBook(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../fxmlfile/SearchBook.fxml"));
 			Stage primaryStage = new Stage();
-			primaryStage.setTitle("Search Books - Page");
-			primaryStage.setScene(new Scene(root, 490, 500));
+			primaryStage.setTitle("Library Management System : Search Books");
+			Scene scene = new Scene(root, 490, 500);
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

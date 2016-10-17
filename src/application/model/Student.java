@@ -171,6 +171,7 @@ public class Student extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -194,6 +195,7 @@ public class Student extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -210,6 +212,7 @@ public class Student extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setFullScreen(false);
 			primaryStage.show();
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -241,12 +244,15 @@ public class Student extends Application {
 	public void deleteStudentById(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(Student.class.getResource("../fxmlfile/delete-student.fxml"));
-			primaryStage.setTitle("DELETE LIBRARIAN");
+			primaryStage.setTitle("Library Management System : Delete Student");
 			AnchorPane page = (AnchorPane) loader.load();
-			Scene scene = new Scene(page);
+			Scene scene = new Scene(page, 500, 230);
 			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("../css/librarian.css").toExternalForm());
 			primaryStage.show();
-			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/delete.png").toString()));
+			primaryStage.setResizable(false);
+			primaryStage.setFullScreen(false);
+			primaryStage.getIcons().add(new Image(this.getClass().getResource("../images/icon.jpg").toString()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

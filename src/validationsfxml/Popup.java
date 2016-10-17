@@ -66,6 +66,15 @@ public class Popup {
 		alter.setContentText("Book Data has been saved successfully.");
 		alter.show();
 	}
+	
+	public static void getBookIssuedNotification() {
+		Alert alter = new Alert(AlertType.INFORMATION);
+		alter.setTitle("Data Issued Confirmation");
+		alter.setHeaderText(null);
+		alter.setContentText("Book Data has been issued successfully.");
+		alter.show();
+	}
+	
 	public static void getBookReturnNotification() {
 		Alert alter = new Alert(AlertType.INFORMATION);
 		alter.setTitle("Book Return Confirmation");
@@ -76,7 +85,7 @@ public class Popup {
 
 	// pop up for deleting Book data.
 	public static void getBookDeleteNotification() {
-		Alert alter = new Alert(AlertType.CONFIRMATION);
+		Alert alter = new Alert(AlertType.INFORMATION);
 		alter.setTitle("Book  Delete Confirmation");
 		alter.setHeaderText(null);
 		alter.setContentText("Book has been Deleted successfully.");

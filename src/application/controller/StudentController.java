@@ -203,9 +203,10 @@ public class StudentController  {
 				if (delete > 0) {
 					Stage primaryStage = new Stage();
 					((Node) event.getSource()).getScene().getWindow().hide();
-					Popup.getStudentDeleteNotification();
+					
 					Librarian librarian = new Librarian();
 					librarian.start(primaryStage);
+					Popup.getStudentDeleteNotification();
 
 				} else {
 					Popup.wrongStudentDeleteNotification();
