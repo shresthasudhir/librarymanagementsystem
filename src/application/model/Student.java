@@ -215,21 +215,22 @@ public class Student extends Application {
 		}
 	}
 
-	public int saveDatatoDataBase() {
+	public int saveDatatoDataBase(String firstname, String lastname, String address, java.sql.Date dateOfBirth, 
+			Long contactNumber, String username, String password, String email, int status) {
 		int save = 0;
 		try {
 			Connection con = Database.getConnection();
 			PreparedStatement ps = con.prepareStatement(
 					"INSERT INTO users(firstname, lastname, address, dateOfBirth, contactNumber, username, password, email, status) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			ps.setString(1, getFirstname());
-			ps.setString(2, getLastname());
-			ps.setString(3, getAddress());
-			ps.setDate(4, getDateOfBirth());
-			ps.setLong(5, getContactNumber());
-			ps.setString(6, getUsername());
-			ps.setString(7, getPassword());
-			ps.setString(8, getEmail());
-			ps.setInt(9, getStatus());
+			ps.setString(1, firstname);
+			ps.setString(2, lastname);
+			ps.setString(3, address);
+			ps.setDate(4, dateOfBirth);
+			ps.setLong(5, contactNumber);
+			ps.setString(6, username);
+			ps.setString(7, password);
+			ps.setString(8, email);
+			ps.setInt(9, status);
 			save = ps.executeUpdate();
 			con.close();
 		} catch (Exception e) {
