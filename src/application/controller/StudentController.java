@@ -141,18 +141,9 @@ public class StudentController  {
 			String aEmail = email.getText();
 			String aUserName = username.getText();
 			String aPassword = password.getText();
-
-			newStudent.setFirstname(afirstName);
-			newStudent.setLastname(aLastName);
-			newStudent.setAddress(aAddress);
-			newStudent.setDateOfBirth(sqlDate);
-			newStudent.setContactNumber(aContactNumber);
-			newStudent.setEmail(aEmail);
-			newStudent.setUsername(aUserName);
-			newStudent.setPassword(aPassword);
-			newStudent.setStatus(3);
 			try {
-				int saveStudentData = newStudent.saveDatatoDataBase();
+				int saveStudentData = newStudent.saveDatatoDataBase(afirstName, aLastName, aAddress, sqlDate, aContactNumber, aEmail, aUserName
+						 , aPassword, 3);
 				if (saveStudentData > 0) {
 					Stage primaryStage = new Stage();
 					((Node) event.getSource()).getScene().getWindow().hide();
